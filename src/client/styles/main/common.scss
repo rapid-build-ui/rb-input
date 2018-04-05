@@ -1,0 +1,32 @@
+& {
+	display: inline-flex;
+	position: relative;
+	align-items: left;
+	flex-direction: column;
+	box-sizing: border-box;
+
+	input {
+		display: inline-block;
+		border: none;
+		border-bottom: 2px solid;
+		border-bottom-color: $GREY;
+		border-radius: 0;
+		width: 100%;
+		padding: 0 0 8px 0;
+		font-size: inherit;
+		outline: none;
+		word-spacing: normal;
+		text-transform: none;
+		text-indent: 0px;
+		text-shadow: none;
+		text-align: start;
+		letter-spacing: 0.04em;
+		&:hover {
+			border-bottom-color: $BLACK;
+		}
+	}
+
+	&.right {
+		direction: rtl;
+	}
+}

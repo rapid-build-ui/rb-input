@@ -1,0 +1,8 @@
+/***********
+ * DISABLED
+ ***********/
+&[disabled] {
+	// background-color: lighten($button-default-bg-color, 20%);
+	opacity: .65;
+	pointer-events: none;
+}

@@ -1,0 +1,34 @@
+{
+	"name": "rb-input-server",
+	"version": "0.1.0",
+	"description": "Rapid Build UI - Component Server: rb-input",
+	"license": "MIT",
+	"engines": {
+		"npm": "5.x",
+		"node": "8.x"
+	},
+	"contributors": [
+		{
+			"name": "Judd Younce",
+			"email": "jyounce@yahoo.com",
+			"url": "https://github.com/jyounce"
+		},
+		{
+			"name": "Yevgeniy Okun",
+			"email": "yevgeniyokun@gmail.com",
+			"url": "https://github.com/yokun"
+		},
+		{
+			"name": "Alina Younce",
+			"email": "crisan_alina2003@yahoo.com",
+			"url": "https://github.com/ayounce"
+		}
+	],
+	"scripts": {
+		"start": "node rapid-build/start-server",
+		"stop": "node rapid-build/stop-server"
+	},
+	"dependencies": {
+		"cors": "2.8.4"
+	}
+}

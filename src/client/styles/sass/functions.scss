@@ -1,0 +1,7 @@
+/*****************
+ * SASS FUNCTIONS
+ *****************/
+// pixels to rem converter
+@function remy($px, $pxBase: 16) {
+	@return ($px / $pxBase) + rem;
+}

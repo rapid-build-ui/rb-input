@@ -1,0 +1,16 @@
+/******************
+ * RB-INPUT STYLES
+ ******************/
+// Sassy Goodness
+@import 'sass/functions.scss';
+@import 'sass/variables.scss';
+
+/* The Component
+ ****************/
+ .rb-input {
+	@import 'main/common.scss';
+	@import 'main/label.scss';
+	@import 'main/disabled.scss';
+	@import 'main/subtext.scss';
+}
+

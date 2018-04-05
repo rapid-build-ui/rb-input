@@ -1,0 +1,64 @@
+common:
+	build: server: false
+	browser: open: false, reload: false
+
+	dist:
+		client:
+			paths:
+				absolute: false
+
+	exclude:
+		default:
+			client:
+				files: true
+		from:
+			minFile:
+				scripts: [
+					'scripts/type.js'
+					'scripts/validation.js'
+				]
+
+	extra:
+		copy:
+			client: [
+				'package.json'
+			]
+
+	inline:
+		htmlAssets:
+			dev: true
+			enable: true
+
+		jsHtmlImports:
+			client:
+				enable: true
+
+	minify:
+		cacheBust: false
+		html:
+			templateCache: false
+		css:
+			fileName:
+				'rb-input.css'
+		client:
+			js:
+				es6: true
+				enable: false # temporarily until build is fixed
+				fileName: 'rb-input.js'
+		server:
+			js:
+				es6: true
+
+demo:
+	build: server: true
+	browser: open: true, reload: true
+
+	ports:
+		server: 5004
+		reload: 5005
+
+	extra:
+		copy:
+			client: [
+				'node_modules/**'
+			]

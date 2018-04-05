@@ -1,0 +1,4 @@
+# Preserve line-endings for package.json files.
+# Fixes git on windows showing file changes when there are none.
+package*.json text eol=lf
+npm-shrinkwrap.json text eol=lf
