@@ -4,6 +4,8 @@
 import { PolymerElement, html } from '../../../@polymer/polymer/polymer-element.js';
 import validate from './validation.js';
 import template from '../views/rb-input.html';
+import type from './type.js';
+
 
 export class RbInput extends PolymerElement {
 	/* Lifecycle
@@ -14,8 +16,8 @@ export class RbInput extends PolymerElement {
 
 	connectedCallback() {
 		super.connectedCallback();
-		this._focusListener = this._setFocus.bind(this);
-		this._blurListener = this._removeFocus.bind(this);
+		this._focusListener = this._onFocus.bind(this);
+		this._blurListener = this._onBlur.bind(this);
 		this._rbInput = this.root.querySelector('.rb-input');
 		this._input = this.root.querySelector('input');
 		this._input.addEventListener('focus', this._focusListener);
@@ -55,6 +57,18 @@ export class RbInput extends PolymerElement {
 			},
 			subtext: {
 				type: String
+			},
+			validation: {
+				type: Array,
+				value: []
+			},
+			dirty: {
+				type: Boolean,
+				value: false
+			},
+			valid: {
+				type: Boolean,
+				value: true
 			}
 
 		}
@@ -68,23 +82,52 @@ export class RbInput extends PolymerElement {
 
 	/* Event Handlers
 	 *****************/
-	_setFocus(e) {
+	 //on focus
+	_onFocus(e) {
 		this._displayLabelAbove();
 		this._rbInput.classList.add("active");
 	}
 
-	_removeFocus(e) {
+	//on blur
+	_onBlur(e) {
 		if (this.value == undefined || this.value.length == 0)
 			this._rbInput.classList.remove("label-above");
 		this._rbInput.classList.remove("active");
+		if (!this.dirty) this.dirty = true;
+
+		this._validate();
+
 	}
 
 	_valueChanged(newValue, oldValue) {
-
 	}
 
 	_displayLabelAbove() {
 		this._rbInput.classList.add("label-above");
+	}
+
+	_validate() {
+		let valid = true;
+		for (const [i, item] of this.validation.entries()) {
+			if (!item) break;
+			if (!valid) break;
+
+			if (type.is.function(item))
+				valid = item(this.value);
+			else if (type.is.object(item)) {
+				let key = Object.keys(item)[0]
+				valid = validate[key](this.value, item[key]);
+			}
+			else
+				valid = validate[item](this.value);
+		}
+
+		if (!valid) return this._rbInput.classList.add("error");
+		this._rbInput.classList.remove("error");
+	}
+
+	_validateCustom() {
+
 	}
 
 	/* Template

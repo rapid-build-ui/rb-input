@@ -1,0 +1,12 @@
+/***********
+ * ERROR
+ ***********/
+&.error {
+	color: red;
+	input {
+		border-bottom-color: red;
+	}
+	.subtext {
+		color: red;
+	}
+}
