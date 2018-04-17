@@ -99,7 +99,8 @@ const Help = {
 				}
 			}
 		}
-		return val.toString().trim().length === 0 || val.toString().trim().length >= params[lengthKey];
+		return val.toString().trim().length === 0 ||
+			  type.is.object(params) ? val.toString().trim().length >= params[lengthKey] : val.toString().trim().length >= params;
 	},
 
 	setMinMaxMsgParams(params, minOrMax) {

@@ -5,6 +5,7 @@ import { PolymerElement, html } from '../../../@polymer/polymer/polymer-element.
 import validate from './validation.js';
 import template from '../views/rb-input.html';
 import type from './type.js';
+import validationMessages from './validation-messages.js';
 
 
 export class RbInput extends PolymerElement {
@@ -59,8 +60,8 @@ export class RbInput extends PolymerElement {
 				type: String
 			},
 			validation: {
-				type: Array,
-				value: []
+				type: Object,
+				value: {}
 			},
 			dirty: {
 				type: Boolean,
@@ -93,13 +94,14 @@ export class RbInput extends PolymerElement {
 		if (this.value == undefined || this.value.length == 0)
 			this._rbInput.classList.remove("label-above");
 		this._rbInput.classList.remove("active");
-		if (!this.dirty) this.dirty = true;
-
-		this._validate();
-
 	}
 
 	_valueChanged(newValue, oldValue) {
+		if (newValue != oldValue)
+			this.dirty = true
+
+		if (this.dirty)
+			this._validate(newValue)
 	}
 
 	_displayLabelAbove() {
@@ -108,18 +110,30 @@ export class RbInput extends PolymerElement {
 
 	_validate() {
 		let valid = true;
-		for (const [i, item] of this.validation.entries()) {
+		for (const [i, item] of eval(this.validation).entries()) {
 			if (!item) break;
 			if (!valid) break;
 
-			if (type.is.function(item))
-				valid = item(this.value);
-			else if (type.is.object(item)) {
+			if (type.is.function(item)){ //custom validation
+				var funcOut = item(this.value);
+				valid = funcOut.valid
+				if (!valid)
+					this.subtext = funcOut.message;
+			}
+			else if (type.is.object(item)) { //validation with params object
 				let key = Object.keys(item)[0]
 				valid = validate[key](this.value, item[key]);
+				if (!valid)
+					this.subtext = validationMessages[key] + item[key]
 			}
-			else
+			else {//simple validation
 				valid = validate[item](this.value);
+				if (!valid)
+					this.subtext = validationMessages[item]
+			}
+
+
+
 		}
 
 		if (!valid) return this._rbInput.classList.add("error");
