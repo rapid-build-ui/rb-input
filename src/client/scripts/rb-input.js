@@ -23,6 +23,7 @@ export class RbInput extends PolymerElement {
 		this._input = this.root.querySelector('input');
 		this._input.addEventListener('focus', this._focusListener);
 		this._input.addEventListener('blur', this._blurListener);
+		this._subtext = this.subtext;
 
 		if (this.value != undefined && this.value.length > 0)
 			this._displayLabelAbove();
@@ -67,6 +68,10 @@ export class RbInput extends PolymerElement {
 				type: Boolean,
 				value: false
 			},
+			blured: {
+				type: Boolean,
+				value: false
+			},
 			valid: {
 				type: Boolean,
 				value: true
@@ -94,14 +99,21 @@ export class RbInput extends PolymerElement {
 		if (this.value == undefined || this.value.length == 0)
 			this._rbInput.classList.remove("label-above");
 		this._rbInput.classList.remove("active");
+
+		if (this.dirty){
+			this.blured = true;
+			this._validate()
+		}
 	}
 
 	_valueChanged(newValue, oldValue) {
 		if (newValue != oldValue)
 			this.dirty = true
 
+		if (!this.blured) return;
+
 		if (this.dirty)
-			this._validate(newValue)
+			this._validate()
 	}
 
 	_displayLabelAbove() {
@@ -118,24 +130,24 @@ export class RbInput extends PolymerElement {
 				var funcOut = item(this.value);
 				valid = funcOut.valid
 				if (!valid)
-					this.subtext = funcOut.message;
+					this._subtext = funcOut.message;
 			}
 			else if (type.is.object(item)) { //validation with params object
 				let key = Object.keys(item)[0]
 				valid = validate[key](this.value, item[key]);
 				if (!valid)
-					this.subtext = validationMessages[key] + item[key]
+					this._subtext = validationMessages[key] + item[key]
 			}
 			else {//simple validation
 				valid = validate[item](this.value);
 				if (!valid)
-					this.subtext = validationMessages[item]
+					this._subtext = validationMessages[item]
 			}
 
 
 
 		}
-
+		if (valid) this._subtext = this.subtext;
 		if (!valid) return this._rbInput.classList.add("error");
 		this._rbInput.classList.remove("error");
 	}
