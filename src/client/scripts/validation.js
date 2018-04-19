@@ -2,6 +2,7 @@
  * Validation Service
  *********************/
 import type from './type.js';
+import message from './validation-messages.js'
 
 /* Helpers (all return boolean)
  **********/
@@ -132,9 +133,9 @@ const Validation = {
 		return /^[-]?\d{1,9}(\.\d{1,2})?$/.test(val);
 	},
 
-	custom(val, params, validatorModel) {
-		return params.test(val, params, validatorModel);
-	},
+	// custom(val, params, validatorModel) {
+	// 	return params.test(val, params, validatorModel);
+	// },
 
 	date(val) {
 		if (!val || type.is.undefined(val)) return true;
@@ -176,8 +177,15 @@ const Validation = {
 
 	minLength(val, params) {
 		return type.is.array(val) ?
-			Help.arrayMinLength(val, params) :
-			Help.stringMinLength(val, params);
+			{
+				valid: Help.arrayMinLength(val, params),
+				message: `${message['minLength']} is ${params}`
+			}
+			:
+			{
+				valid: Help.stringMinLength(val, params),
+				message: `${message['minLength']} ${params}`
+			}
 	},
 
 	minMaxLength(val, params) {
@@ -240,13 +248,17 @@ const Validation = {
 	},
 
 	range(val, params) {
-		if (!val) return true;
-		return (this.number(val)) && (val >= params.min) && (val <= params.max);
+		if (!this.number(val)) return {valid: true};
+		if (!val) return {valid: true};
+		return {
+			valid: (this.number(val)) && (val >= params.min) && (val <= params.max),
+			message: `${message['range']} ${params.min} and ${params.max}`
+		}
 	},
 
 	regEx(val, params) {
 		if (!val) return true;
-		return val.match(params.pattern);
+		return {valid: val.match(params)};
 	},
 
 	required(val, params) {

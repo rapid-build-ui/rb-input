@@ -2,10 +2,15 @@
  * TYPE HELPER
  **************/
 const Messages = {
-	minLength: "Minimum length is ",
-	maxLength: "Maximum length is ",
-	required: "Missing value",
-	email: "Email is not valid"
+	default: "not valid",
+	minLength: "minimum length ",
+	maxLength: "maximum length ",
+	required: "required",
+	email: "invalid email",
+	range: "range should be between ",
+	number: "number is not valid",
+	regEx: 'regEx invalid'
+
 }
 
 /* Export it!

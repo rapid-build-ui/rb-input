@@ -7,7 +7,6 @@ import template from '../views/rb-input.html';
 import type from './type.js';
 import validationMessages from './validation-messages.js';
 
-
 export class RbInput extends PolymerElement {
 	/* Lifecycle
 	 ************/
@@ -62,7 +61,6 @@ export class RbInput extends PolymerElement {
 			},
 			validation: {
 				type: Object,
-				value: {}
 			},
 			dirty: {
 				type: Boolean,
@@ -71,12 +69,7 @@ export class RbInput extends PolymerElement {
 			blured: {
 				type: Boolean,
 				value: false
-			},
-			valid: {
-				type: Boolean,
-				value: true
 			}
-
 		}
 	}
 
@@ -88,13 +81,11 @@ export class RbInput extends PolymerElement {
 
 	/* Event Handlers
 	 *****************/
-	 //on focus
 	_onFocus(e) {
 		this._displayLabelAbove();
 		this._rbInput.classList.add("active");
 	}
 
-	//on blur
 	_onBlur(e) {
 		if (this.value == undefined || this.value.length == 0)
 			this._rbInput.classList.remove("label-above");
@@ -120,40 +111,59 @@ export class RbInput extends PolymerElement {
 		this._rbInput.classList.add("label-above");
 	}
 
-	_validate() {
+	async _validate() {
+		if (!this.validation) return;
 		let valid = true;
-		for (const [i, item] of eval(this.validation).entries()) {
-			if (!item) break;
+		for (const [i, validator] of eval(this.validation).entries()) {
+			if (!validator) break;
 			if (!valid) break;
 
-			if (type.is.function(item)){ //custom validation
-				var funcOut = item(this.value);
-				valid = funcOut.valid
-				if (!valid)
-					this._subtext = funcOut.message;
+			switch(true) {
+				case type.is.function(validator):
+					valid = await this._validateCustom(validator);
+					break;
+				case type.is.object(validator):
+					valid = this._validateObject(validator);
+					break;
+				default:
+					valid = this._validateSimple(validator);
 			}
-			else if (type.is.object(item)) { //validation with params object
-				let key = Object.keys(item)[0]
-				valid = validate[key](this.value, item[key]);
-				if (!valid)
-					this._subtext = validationMessages[key] + item[key]
-			}
-			else {//simple validation
-				valid = validate[item](this.value);
-				if (!valid)
-					this._subtext = validationMessages[item]
-			}
-
-
-
 		}
 		if (valid) this._subtext = this.subtext;
 		if (!valid) return this._rbInput.classList.add("error");
 		this._rbInput.classList.remove("error");
 	}
 
-	_validateCustom() {
+	_validateSimple(validator) {
+		let valid = validate[validator](this.value);
+		if (!valid)
+			this._subtext = validationMessages[validator] || validationMessages.default;
+		return valid;
+	}
 
+	_validateObject(validator) {
+		let key = Object.keys(validator)[0]
+		let out = validate[key](this.value, validator[key]);
+		if (!out.valid){
+			switch(key) {
+				case 'minLength':
+					this._subtext = out.message;
+					break;
+				case 'range':
+					this._subtext = out.message;
+					break;
+				default:
+					this._subtext = validationMessages.default;
+			}
+		}
+		return out.valid;
+	}
+
+	async _validateCustom(validator) {
+		let funcOutput = await validator(this.value);
+		let valid = funcOutput.valid
+		if (!valid) this._subtext = funcOutput.message;
+		return valid;
 	}
 
 	/* Template
