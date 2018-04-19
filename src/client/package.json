@@ -1,6 +1,6 @@
 {
 	"name": "@rapid-build-ui/rb-input",
-	"version": "0.1.0",
+	"version": "0.0.0",
 	"main": "scripts/rb-input.js",
 	"description": "Rapid Build UI Component: rb-input",
 	"license": "MIT",

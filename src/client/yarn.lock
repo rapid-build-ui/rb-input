@@ -10,9 +10,9 @@
     "@webcomponents/webcomponentsjs" "^1.0.0"
 
 "@webcomponents/shadycss@^1.0.0":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@webcomponents/shadycss/-/shadycss-1.1.2.tgz#947e9306eb2e084a4a3a4fd738aced00721bce92"
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@webcomponents/shadycss/-/shadycss-1.1.3.tgz#6d4c7d2d842de9dba1b3ac5cc051938b8439c043"
 
 "@webcomponents/webcomponentsjs@^1.0.0":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@webcomponents/webcomponentsjs/-/webcomponentsjs-1.1.1.tgz#50caffdf8a901e5357532b7d85e776637a56446a"
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@webcomponents/webcomponentsjs/-/webcomponentsjs-1.2.0.tgz#c9e129340c3e4637f5fa6505e968e85face7bd5b"

@@ -1,6 +1,6 @@
 {
 	"name": "rb-input-server",
-	"version": "0.1.0",
+	"version": "0.0.0",
 	"description": "Rapid Build UI - Component Server: rb-input",
 	"license": "MIT",
 	"engines": {
@@ -29,6 +29,6 @@
 		"stop": "node rapid-build/stop-server"
 	},
 	"dependencies": {
-		"cors": "2.8.4"
+		"cors": "^2.8.4"
 	}
 }

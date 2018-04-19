@@ -16,6 +16,7 @@ common:
 				scripts: [
 					'scripts/type.js'
 					'scripts/validation.js'
+					'scripts/validation-messages.js'
 				]
 
 	extra:
