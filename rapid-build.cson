@@ -50,13 +50,29 @@ common:
 			js:
 				es6: true
 
-demo:
+# RUN BEFORE NPM PUBLISH!!
+# rapid-build prod publish
+# ========================
+publish:
+	extra:
+		copy:
+			client: [
+				'.npmignore'
+				'CHANGELOG.md'
+				'LICENSE'
+				'README.md'
+			]
+
+# TODO:
+# HOST COMPONENT FROM THIS SERVER
+# ===============================
+host:
 	build: server: true
 	browser: open: true, reload: true
 
 	ports:
-		server: 5004
-		reload: 5005
+		server: 5002
+		reload: 5003
 
 	extra:
 		copy:
