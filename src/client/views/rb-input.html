@@ -3,7 +3,15 @@
 	class$="rb-input [[_right(right)]]">
 	<label for="input">[[label]]</label>
 	<input id="input" type="text" class$="[[kind]]" value="{{value::input}}">
+	<template is="dom-if" if="{{icon}}">
+		<rb-icon
+			kind="[[icon]]"
+			size="[[iconSize]]"
+			source="[[iconSource]]">
+		</rb-icon>
+	</template>
 	<span class="subtext">[[_subtext]]</span>
+
 </div>
 
 <link rel="stylesheet" href="../styles/rb-input.css">

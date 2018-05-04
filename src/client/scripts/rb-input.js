@@ -76,6 +76,15 @@ export class RbInput extends PolymerElement {
 			},
 			placeholder: {
 				type: String
+			},
+			icon: {
+				type: String
+			},
+			iconSource: {
+				type: String
+			},
+			iconPosition: {
+				type: String
 			}
 		}
 	}
@@ -94,6 +103,8 @@ export class RbInput extends PolymerElement {
 	}
 
 	_onBlur(e) {
+		if (!!this.placeholder)
+			return;
 		if (this.value == undefined || this.value.length == 0)
 			this._rbInput.classList.remove("label-above");
 		this._rbInput.classList.remove("active");
