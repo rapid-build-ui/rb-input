@@ -95,6 +95,15 @@ export class RbInput extends PolymerElement {
 		return right ? 'right' : null;
 	}
 
+	_iconPosition(position, icon) {
+		if (!!this.icon && !!position)
+			return 'icon-left';
+
+		if (!!this.icon)
+			return 'icon-right';
+
+	}
+
 	/* Event Handlers
 	 *****************/
 	_onFocus(e) {

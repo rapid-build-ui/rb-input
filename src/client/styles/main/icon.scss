@@ -1,0 +1,61 @@
+rb-icon {
+	position: absolute;
+	top: 2px;
+}
+
+&.icon-left {
+	rb-icon {
+		left: 0;
+	}
+	input, label {
+		padding-left: 20px;
+	}
+
+	&.label-above {
+		label {
+			padding-left: 0;
+		}
+
+	}
+}
+
+&.icon-right {
+	rb-icon {
+		right: -20px;
+	}
+	input {
+		padding-right: 20px;
+	}
+}
+
+&.right {
+	label {
+		padding-right: 20px;
+	}
+
+	&.label-above {
+		label {
+			padding-right: 0;
+		}
+
+	}
+
+	&.icon-left {
+		rb-icon {
+			padding-left: 0;
+		}
+
+		label {
+			padding-right: 0;
+		}
+
+		rb-icon {
+			left: -20px;
+		}
+	}
+	&.icon-right {
+		rb-icon {
+			right: 0;
+		}
+	}
+}
