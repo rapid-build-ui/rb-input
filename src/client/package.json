@@ -34,6 +34,7 @@
 	},
 	"flat": true,
 	"dependencies": {
-		"@polymer/polymer": "next"
+		"@polymer/polymer": "next",
+		"@rapid-build-ui/rb-icon": "^0.0.1"
 	}
 }

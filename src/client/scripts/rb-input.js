@@ -6,6 +6,7 @@ import validate from './validation.js';
 import template from '../views/rb-input.html';
 import type from './type.js';
 import validationMessages from './validation-messages.js';
+import '../../rb-icon/scripts/rb-icon.js';
 
 export class RbInput extends PolymerElement {
 	/* Lifecycle

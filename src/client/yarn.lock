@@ -8,6 +8,12 @@
   dependencies:
     "@webcomponents/shadycss" "^1.2.0-0"
 
+"@rapid-build-ui/rb-icon@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-icon/-/rb-icon-0.0.1.tgz#900605f12d6eb7d3e17276520d07680509c1ae0e"
+  dependencies:
+    "@polymer/polymer" next
+
 "@webcomponents/shadycss@^1.2.0-0":
   version "1.2.0-0"
   resolved "https://registry.yarnpkg.com/@webcomponents/shadycss/-/shadycss-1.2.0-0.tgz#3c1dd63c934de6bb253abb6d13e658e5f08e3371"
