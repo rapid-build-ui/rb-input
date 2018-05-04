@@ -24,8 +24,11 @@ export class RbInput extends PolymerElement {
 		this._input.addEventListener('blur', this._blurListener);
 		this._subtext = this.subtext;
 
-		if (this.value != undefined && this.value.length > 0)
+		if ((this.value != undefined && this.value.length > 0) || !!this.placeholder)
 			this._displayLabelAbove();
+
+		if (!!this.placeholder)
+			this._addPlaceholder()
 	}
 
 	disconnectedCallback() {
@@ -69,6 +72,9 @@ export class RbInput extends PolymerElement {
 			blured: {
 				type: Boolean,
 				value: false
+			},
+			placeholder: {
+				type: String
 			}
 		}
 	}
@@ -111,13 +117,16 @@ export class RbInput extends PolymerElement {
 		this._rbInput.classList.add("label-above");
 	}
 
+	_addPlaceholder() {
+		this._input.setAttribute('placeholder', this.placeholder);
+	}
+
 	async _validate() {
 		if (!this.validation) return;
 		let valid = true;
 		for (const [i, validator] of eval(this.validation).entries()) {
 			if (!validator) break;
 			if (!valid) break;
-
 			switch(true) {
 				case type.is.function(validator):
 					valid = await this._validateCustom(validator)
