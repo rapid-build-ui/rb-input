@@ -133,9 +133,6 @@ const Validation = {
 		return /^[-]?\d{1,9}(\.\d{1,2})?$/.test(val);
 	},
 
-	// custom(val, params, validatorModel) {
-	// 	return params.test(val, params, validatorModel);
-	// },
 
 	date(val) {
 		if (!val || type.is.undefined(val)) return true;
@@ -190,24 +187,23 @@ const Validation = {
 
 	minMaxLength(val, params) {
 		var flag = true;
+		var output = {}
 		if (type.is.array(val)) {
 			flag = Help.arrayMinLength(val, params, 'min');
-			if (!flag) {
-				Help.setMinMaxMsgParams(params, 'min');
-			} else {
+			if (flag) {
 				flag = Help.arrayMaxLength(val, params, 'max');
-				if (!flag) Help.setMinMaxMsgParams(params, 'max');
 			}
 		} else {
 			flag = Help.stringMinLength(val, params, 'min');
-			if (!flag) {
-				Help.setMinMaxMsgParams(params, 'min');
-			} else {
+			if (flag) {
 				flag = Help.stringMaxLength(val, params, 'max');
-				if (!flag) Help.setMinMaxMsgParams(params, 'max');
 			}
 		}
-		return flag;
+		output.valid = flag;
+		if (!flag)
+			output.message = `${message['minMaxLength']} ${params.min} and ${params.max}`
+
+		return output;
 	},
 
 	name(val) {
@@ -226,7 +222,10 @@ const Validation = {
 		var re;
 		if (!val) return true;
 		re = params.positive ? /^\d+\.?\d*$/ : /^\-?\d+\.?\d*$/;
-		return re.test(val);
+		return {
+					valid: re.test(val),
+					message: 'not a valid number'
+				}
 	},
 
 	password(val) {
@@ -262,9 +261,13 @@ const Validation = {
 	},
 
 	required(val, params) {
-		return type.is.array(val) ?
-			Help.arrayRequired(val, params) :
-			Help.stringRequired(val);
+		return {
+					valid: type.is.array(val) ?
+						Help.arrayRequired(val, params) :
+						Help.stringRequired(val),
+					message: `${message['required']}`
+				}
+
 	},
 
 	validCharset(val, params) {

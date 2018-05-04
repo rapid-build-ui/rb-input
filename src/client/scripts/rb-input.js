@@ -120,7 +120,7 @@ export class RbInput extends PolymerElement {
 
 			switch(true) {
 				case type.is.function(validator):
-					valid = await this._validateCustom(validator);
+					valid = await this._validateCustom(validator)
 					break;
 				case type.is.object(validator):
 					valid = this._validateObject(validator);
@@ -135,27 +135,18 @@ export class RbInput extends PolymerElement {
 	}
 
 	_validateSimple(validator) {
-		let valid = validate[validator](this.value);
-		if (!valid)
-			this._subtext = validationMessages[validator] || validationMessages.default;
-		return valid;
+		let out = validate[validator](this.value);
+		if (!out.valid)
+			this._subtext = out.message;
+		return out.valid;
 	}
 
 	_validateObject(validator) {
 		let key = Object.keys(validator)[0]
 		let out = validate[key](this.value, validator[key]);
-		if (!out.valid){
-			switch(key) {
-				case 'minLength':
-					this._subtext = out.message;
-					break;
-				case 'range':
-					this._subtext = out.message;
-					break;
-				default:
-					this._subtext = validationMessages.default;
-			}
-		}
+		if (!out.valid)
+			this._subtext = out.message;
+
 		return out.valid;
 	}
 
