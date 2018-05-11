@@ -3,6 +3,7 @@
 	class$="rb-input [[_right(right)]] [[_iconPosition(iconPosition, icon)]]">
 	<label for="input">[[label]]</label>
 	<input id="input" type="text" class$="[[kind]]" value="{{value::input}}">
+	<div class="input-focus-line"></div>
 	<template is="dom-if" if="{{icon}}">
 		<rb-icon
 			kind="[[icon]]"

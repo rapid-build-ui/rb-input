@@ -5,6 +5,7 @@
 	flex-direction: column;
 	box-sizing: border-box;
 
+
 	input {
 		display: inline-block;
 		box-sizing: border-box;
@@ -22,9 +23,6 @@
 		text-shadow: none;
 		text-align: start;
 		letter-spacing: 0.04em;
-		&:hover {
-			border-bottom-color: $BLACK;
-		}
 	}
 
 	&.right {

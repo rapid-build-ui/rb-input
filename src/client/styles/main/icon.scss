@@ -1,6 +1,6 @@
 rb-icon {
 	position: absolute;
-	top: 2px;
+	top: 0;
 }
 
 &.icon-left {
@@ -8,7 +8,7 @@ rb-icon {
 		left: 0;
 	}
 	input, label {
-		padding-left: 20px;
+		padding-left: 23px;
 	}
 
 	&.label-above {
@@ -21,7 +21,7 @@ rb-icon {
 
 &.icon-right {
 	input{
-		padding-right: 20px;
+		padding-right: 23px;
 	}
 	rb-icon {
 		right: 0;
@@ -50,3 +50,4 @@ rb-icon {
 		}
 	}
 }
+
