@@ -2,18 +2,18 @@
 # yarn lockfile v1
 
 
-"@polymer/polymer@next":
-  version "3.0.0-pre.13"
-  resolved "https://registry.yarnpkg.com/@polymer/polymer/-/polymer-3.0.0-pre.13.tgz#1fa52303bc33157c24a9116653590663ad7173a1"
+"@polymer/polymer@^3":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@polymer/polymer/-/polymer-3.0.2.tgz#626e6f9fae9716b0962ce0211e21df242153eab2"
   dependencies:
-    "@webcomponents/shadycss" "^1.2.0-0"
+    "@webcomponents/shadycss" "^1.2.0"
 
-"@rapid-build-ui/rb-icon@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-icon/-/rb-icon-0.0.1.tgz#900605f12d6eb7d3e17276520d07680509c1ae0e"
+"@rapid-build-ui/rb-icon@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-icon/-/rb-icon-0.0.2.tgz#4627c86f8838bc006c1cc5a86b24e505c727b36c"
   dependencies:
-    "@polymer/polymer" next
+    "@polymer/polymer" "^3"
 
-"@webcomponents/shadycss@^1.2.0-0":
-  version "1.2.0-0"
-  resolved "https://registry.yarnpkg.com/@webcomponents/shadycss/-/shadycss-1.2.0-0.tgz#3c1dd63c934de6bb253abb6d13e658e5f08e3371"
+"@webcomponents/shadycss@^1.2.0":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@webcomponents/shadycss/-/shadycss-1.2.1.tgz#6e4a88534657807c8398b4bc196d0ca492182d54"
