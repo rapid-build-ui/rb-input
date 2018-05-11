@@ -1,7 +1,7 @@
 & {
 	&:not(.error) {
 		input:hover {
-			border-bottom-color: #000000de;
+			border-bottom-color: black;
 		}
 	}
 
@@ -21,13 +21,6 @@
 	    ransform-origin: 123.422px center 0px;
 
 	}
-	&.error {
-		.input-focus-line {
-			background-color: red;
-			transform: none;
-			transition: none;
-		}
-	}
 
 	&.active {
 		.input-focus-line {
@@ -39,6 +32,25 @@
 			color: #0674AD;
 		}
 
+	}
+
+	&.error {
+		color: #db3a4d;
+		input {
+			border-bottom-color: #db3a4d;
+		}
+		.subtext {
+			color: #db3a4d;
+		}
+		.input-focus-line {
+			background-color: red;
+			transform: none;
+			transition: none;
+		}
+
+		label {
+			color: #db3a4d;
+		}
 	}
 }
 
