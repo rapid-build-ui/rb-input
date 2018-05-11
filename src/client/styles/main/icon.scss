@@ -20,11 +20,11 @@ rb-icon {
 }
 
 &.icon-right {
-	rb-icon {
-		right: -20px;
-	}
-	input {
+	input{
 		padding-right: 20px;
+	}
+	rb-icon {
+		right: 0;
 	}
 }
 
@@ -47,15 +47,6 @@ rb-icon {
 
 		label {
 			padding-right: 0;
-		}
-
-		rb-icon {
-			left: -20px;
-		}
-	}
-	&.icon-right {
-		rb-icon {
-			right: 0;
 		}
 	}
 }

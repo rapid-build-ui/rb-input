@@ -96,6 +96,7 @@ export class RbInput extends PolymerElement {
 	}
 
 	_iconPosition(position, icon) {
+		console.log(!!icon, !!position)
 		if (!!this.icon && !!position)
 			return 'icon-left';
 
