@@ -1,6 +1,6 @@
 {
 	"name": "rb-input-server",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Rapid Build UI Web Component Server: rb-input",
 	"license": "MIT",
 	"engines": {
