@@ -38,5 +38,10 @@
 		"install-client": "cd src/client/ && yarn install --ignore-engines",
 		"install-server": "cd src/server/ && npm install",
 		"setup": "npm run install-client && npm run install-server && rapid-build && npm run relink"
+	},
+	"dependencies": {
+		"colors": "^1.2.5",
+		"request": "^2.86.0",
+		"strip-ansi": "^4.0.0"
 	}
 }
