@@ -1,10 +1,12 @@
 & {
-	display: inline-flex;
+	display: flex;
+	// flex:: 1 0  120px;
+	max-width: 220px;
 	position: relative;
 	align-items: left;
 	flex-direction: column;
 	box-sizing: border-box;
-
+	margin-bottom: 15px;
 
 	input {
 		display: inline-block;
@@ -13,6 +15,7 @@
 		border-bottom: 1px solid;
 		border-bottom-color: $GREY;
 		border-radius: 0;
+		color: #323232;
 		width: 100%;
 		padding: 0 0 8px 0;
 		font-size: inherit;
@@ -23,6 +26,12 @@
 		text-shadow: none;
 		text-align: start;
 		letter-spacing: 0.04em;
+
+		&::placeholder {
+			color: #b2b2b2;
+			font-size: .9em;
+			font-style: italic;
+		}
 	}
 
 	&.right {

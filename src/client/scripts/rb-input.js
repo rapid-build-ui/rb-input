@@ -50,6 +50,7 @@ export class RbInput extends PolymerElement {
 			},
 			value: {
 				type: String,
+				notify: true,
 				observer: '_valueChanged'
 			},
 			disabled: {
@@ -102,7 +103,6 @@ export class RbInput extends PolymerElement {
 
 		if (!!this.icon)
 			return 'icon-right';
-
 	}
 
 	/* Event Handlers
@@ -126,6 +126,11 @@ export class RbInput extends PolymerElement {
 	}
 
 	_valueChanged(newValue, oldValue) {
+		if (!newValue && (this.root.activeElement !== this._input))
+			this._rbInput.classList.remove("label-above");
+		else if (!!newValue)
+			this._displayLabelAbove()
+
 		if (newValue != oldValue)
 			this.dirty = true
 
@@ -136,6 +141,7 @@ export class RbInput extends PolymerElement {
 	}
 
 	_displayLabelAbove() {
+		if (!this._rbInput) return;
 		this._rbInput.classList.add("label-above");
 	}
 
