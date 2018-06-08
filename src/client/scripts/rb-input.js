@@ -25,6 +25,10 @@ export class RbInput extends PolymerElement {
 		this._input.addEventListener('blur', this._blurListener);
 		this._subtext = this.subtext;
 
+		if (!!this.label)
+			this._rbInput.classList.add("with-label");
+
+
 		if ((this.value != undefined && this.value.length > 0) || !!this.placeholder)
 			this._displayLabelAbove();
 
@@ -86,6 +90,9 @@ export class RbInput extends PolymerElement {
 			},
 			iconPosition: {
 				type: String
+			},
+			type: {
+				type: String
 			}
 		}
 	}
@@ -94,6 +101,10 @@ export class RbInput extends PolymerElement {
 	 ********************/
 	_right(right) { // :string
 		return right ? 'right' : null;
+	}
+
+	_setSubtext(subtext) { // :string
+		return subtext ? 'subtext' : null;
 	}
 
 	_iconPosition(position, icon) {

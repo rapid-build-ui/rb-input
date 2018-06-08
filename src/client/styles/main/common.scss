@@ -1,12 +1,10 @@
 & {
 	display: flex;
-	// flex:: 1 0  120px;
 	max-width: 220px;
 	position: relative;
-	align-items: left;
 	flex-direction: column;
 	box-sizing: border-box;
-	margin-bottom: 15px;
+	margin-bottom: 25px;
 
 	input {
 		display: inline-block;
@@ -36,5 +34,9 @@
 
 	&.right {
 		direction: rtl;
+	}
+
+	&.with-label {
+		margin-top: 25px;
 	}
 }
