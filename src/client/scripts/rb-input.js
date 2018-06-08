@@ -90,6 +90,10 @@ export class RbInput extends PolymerElement {
 			iconPosition: {
 				type: String
 			},
+			inline: {
+				type: Boolean,
+				value: false
+			},
 			type: {
 				type: String,
 				value: 'text'
@@ -102,6 +106,11 @@ export class RbInput extends PolymerElement {
 	_right(right) { // :string
 		return right ? 'right' : null;
 	}
+
+	_inline(inline) {
+		return inline ? 'inline' : null;
+	}
+
 
 	_setSubtext(subtext) { // :string
 		return subtext ? 'subtext' : null;

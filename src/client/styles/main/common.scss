@@ -1,6 +1,6 @@
 & {
 	display: flex;
-	max-width: 220px;
+	max-width: 167px;
 	position: relative;
 	flex-direction: column;
 	box-sizing: border-box;
@@ -38,5 +38,10 @@
 
 	&.with-label {
 		margin-top: 25px;
+	}
+
+	&.inline {
+		display: inline-flex;
+		margin-right: 25px;
 	}
 }
