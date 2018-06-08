@@ -28,7 +28,6 @@ export class RbInput extends PolymerElement {
 		if (!!this.label)
 			this._rbInput.classList.add("with-label");
 
-
 		if ((this.value != undefined && this.value.length > 0) || !!this.placeholder)
 			this._displayLabelAbove();
 
@@ -92,7 +91,8 @@ export class RbInput extends PolymerElement {
 				type: String
 			},
 			type: {
-				type: String
+				type: String,
+				value: 'text'
 			}
 		}
 	}
