@@ -1,16 +1,16 @@
-# ================================
+# ===============================
 # COMMON SETUP
-# ================================
-# Travis only runs when:
-# - Commit to "continuous" branch.
-# - Valid semver tag is created.
-# ================================
+# ===============================
+# Travis only runs on commit to:
+# - continuous branch
+# - master branch (for releases)
+# ===============================
 # TOKENS AVAILABLE
-# Added via web gui -> settings
-# ================================
-# NPM_TOKEN
-# TRAVIS_TOKEN
-# ================================
+# - Added via web gui -> settings
+# - GITHUB_TOKEN
+# - NPM_TOKEN
+# - TRAVIS_TOKEN
+# ===============================
 language: node_js
 
 node_js:
@@ -18,11 +18,9 @@ node_js:
 
 env:
   global:
-    # Versions
-    - NPM_VERSION="6.0.1"
-    # Directories
-    - RB_COMPONENT_DIR="$TRAVIS_BUILD_DIR"
-    - RB_REPO_NAME="$TRAVIS_REPO_SLUG"
+    - NPM_VERSION="6.1.0"
+    - RB_REPO_SLUG="$TRAVIS_REPO_SLUG"
+    - RB_PROJECT_PATH="$TRAVIS_BUILD_DIR"
 
 cache:
   directories:
@@ -42,9 +40,6 @@ before_install:
 # - before_script:
 #   Runs after npm install.
 #   Stops build immediately on error.
-# - Release Job:
-#   Must be a valid semver tag.
-#   Examples: v1.0.0 or v1.0.0-beta.1
 # ===================================
 jobs:
   include:
@@ -52,26 +47,22 @@ jobs:
     # ==========
     - if: branch = continuous
       before_script:
-        # STEPS (in order)
-        # ================
-        # Build Component
-        # Trigger Showcase Build
-        - rapid-build prod publish
-        - node scripts/travis/continuous $RB_COMPONENT_DIR $TRAVIS_TOKEN $RB_REPO_NAME
+        # build component
+        # copy root files to: dist/client/ (ex: LICENSE)
+        # trigger showcase ci build
+        - npm run build-continuous
 
     # Release
     # =======
-    - if: tag =~ ^v(\d+\.)(\d+\.)(\d+)(-([A-Za-z]+\.)?(\d+\.)?(\d+\.)?(\d+))?$
-      before_script:
-        - rapid-build prod publish
-      before_deploy:
-        - cd $RB_COMPONENT_DIR/dist/client/ # run npm publish from here
-      after_deploy:
-        - cd $RB_COMPONENT_DIR
+    - if: branch = master
       deploy:
-        provider: npm
+        # build component
+        # copy root files to: dist/client/
+        # copy npm config to dist/client/
+        # publish npm package from dist/client/
+        # publish github release from master
+        script: npm run build-release
+        provider: script
         skip_cleanup: true
-        email: rapidbuildui@yahoo.com
         on:
-          tags: true
-        api_key: $NPM_TOKEN
+          branch: master

@@ -50,19 +50,6 @@ common:
 			js:
 				es6: true
 
-# RUN BEFORE NPM PUBLISH!!
-# rapid-build prod publish
-# ========================
-publish:
-	extra:
-		copy:
-			client: [
-				'.npmignore'
-				'CHANGELOG.md'
-				'LICENSE'
-				'README.md'
-			]
-
 # TODO:
 # HOST COMPONENT FROM THIS SERVER
 # ===============================
