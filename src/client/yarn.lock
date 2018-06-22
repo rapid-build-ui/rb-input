@@ -8,12 +8,12 @@
   dependencies:
     "@webcomponents/shadycss" "^1.2.0"
 
-"@rapid-build-ui/rb-icon@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-icon/-/rb-icon-0.0.2.tgz#4627c86f8838bc006c1cc5a86b24e505c727b36c"
+"@rapid-build-ui/rb-icon@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-icon/-/rb-icon-0.0.3.tgz#ebb078b075c7743856674a47f9b7e2b7bb8b0aad"
   dependencies:
     "@polymer/polymer" "^3"
 
 "@webcomponents/shadycss@^1.2.0":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@webcomponents/shadycss/-/shadycss-1.2.1.tgz#6e4a88534657807c8398b4bc196d0ca492182d54"
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@webcomponents/shadycss/-/shadycss-1.3.1.tgz#9320a7a86c8abfec97d41a41e82691a0dfc3a13a"

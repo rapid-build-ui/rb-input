@@ -38,6 +38,6 @@
   "flat": true,
   "dependencies": {
     "@polymer/polymer": "^3",
-    "@rapid-build-ui/rb-icon": "^0.0.2"
+    "@rapid-build-ui/rb-icon": "^0.0.3"
   }
 }
