@@ -1,8 +1,8 @@
 <div
 	disabled$="[[disabled]]"
-	class$="rb-input [[_right(right)]] [[_iconPosition(iconPosition, icon)]]">
+	class$="rb-input [[_right(right)]] [[_inline(inline)]] [[_iconPosition(iconPosition, icon)]]">
 	<label for="input">[[label]]</label>
-	<input id="input" type="text" class$="[[kind]]" value="{{value::input}}">
+	<input id="input" class$="[[kind]]" value="{{value::input}}" type$="[[type]]">
 	<b class="input-focus-line"></b>
 	<template is="dom-if" if="{{icon}}">
 		<rb-icon
@@ -10,6 +10,7 @@
 			source="[[iconSource]]">
 		</rb-icon>
 	</template>
-	<span class="subtext">[[_subtext]]</span>
+	<span class$="[[_setSubtext(_subtext)]]">[[_subtext]]</span>
 </div>
+
 <link rel="stylesheet" href="../styles/rb-input.css">

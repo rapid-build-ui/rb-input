@@ -1,16 +1,6 @@
-# dot files
-# =========
-.atomignore
-.travis.yml
-
 # file extensions
 # ===============
-*.db
 *.log
-*.map
-*.orig
-*.sublime*
-*.tmp
 
 # root folders
 # ============

@@ -25,6 +25,9 @@ export class RbInput extends PolymerElement {
 		this._input.addEventListener('blur', this._blurListener);
 		this._subtext = this.subtext;
 
+		if (!!this.label)
+			this._rbInput.classList.add("with-label");
+
 		if ((this.value != undefined && this.value.length > 0) || !!this.placeholder)
 			this._displayLabelAbove();
 
@@ -50,6 +53,7 @@ export class RbInput extends PolymerElement {
 			},
 			value: {
 				type: String,
+				notify: true,
 				observer: '_valueChanged'
 			},
 			disabled: {
@@ -85,6 +89,14 @@ export class RbInput extends PolymerElement {
 			},
 			iconPosition: {
 				type: String
+			},
+			inline: {
+				type: Boolean,
+				value: false
+			},
+			type: {
+				type: String,
+				value: 'text'
 			}
 		}
 	}
@@ -95,6 +107,15 @@ export class RbInput extends PolymerElement {
 		return right ? 'right' : null;
 	}
 
+	_inline(inline) {
+		return inline ? 'inline' : null;
+	}
+
+
+	_setSubtext(subtext) { // :string
+		return subtext ? 'subtext' : null;
+	}
+
 	_iconPosition(position, icon) {
 		console.log(!!icon, !!position)
 		if (!!this.icon && !!position)
@@ -102,7 +123,6 @@ export class RbInput extends PolymerElement {
 
 		if (!!this.icon)
 			return 'icon-right';
-
 	}
 
 	/* Event Handlers
@@ -126,6 +146,11 @@ export class RbInput extends PolymerElement {
 	}
 
 	_valueChanged(newValue, oldValue) {
+		if (!newValue && (this.root.activeElement !== this._input))
+			this._rbInput.classList.remove("label-above");
+		else if (!!newValue)
+			this._displayLabelAbove()
+
 		if (newValue != oldValue)
 			this.dirty = true
 
@@ -136,6 +161,7 @@ export class RbInput extends PolymerElement {
 	}
 
 	_displayLabelAbove() {
+		if (!this._rbInput) return;
 		this._rbInput.classList.add("label-above");
 	}
 

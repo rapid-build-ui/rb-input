@@ -1,40 +1,43 @@
 {
-	"name": "@rapid-build-ui/rb-input",
-	"version": "0.0.2",
-	"main": "scripts/rb-input.js",
-	"description": "Rapid Build UI Web Component: rb-input",
-	"license": "MIT",
-	"engines": {
-		"npm": "5.x",
-		"node": "8.x"
-	},
-	"contributors": [
-		{
-			"name": "Judd Younce",
-			"email": "jyounce@yahoo.com",
-			"url": "https://github.com/jyounce"
-		},
-		{
-			"name": "Yevgeniy Okun",
-			"email": "yevgeniyokun@gmail.com",
-			"url": "https://github.com/yokun"
-		},
-		{
-			"name": "Alina Younce",
-			"email": "crisan_alina2003@yahoo.com",
-			"url": "https://github.com/ayounce"
-		}
-	],
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/rapid-build-ui/rb-input"
-	},
-	"bugs": {
-		"url": "https://github.com/rapid-build-ui/rb-input/issues"
-	},
-	"flat": true,
-	"dependencies": {
-		"@polymer/polymer": "^3",
-		"@rapid-build-ui/rb-icon": "^0.0.2"
-	}
+  "name": "@rapid-build-ui/rb-input",
+  "version": "0.0.2",
+  "main": "scripts/rb-input.js",
+  "description": "Rapid Build UI Web Component: rb-input",
+  "license": "MIT",
+  "engines": {
+    "node": "8.x",
+    "npm": "6.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "contributors": [
+    {
+      "name": "Judd Younce",
+      "email": "jyounce@yahoo.com",
+      "url": "https://github.com/jyounce"
+    },
+    {
+      "name": "Yevgeniy Okun",
+      "email": "yevgeniyokun@gmail.com",
+      "url": "https://github.com/yokun"
+    },
+    {
+      "name": "Alina Younce",
+      "email": "crisan_alina2003@yahoo.com",
+      "url": "https://github.com/ayounce"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rapid-build-ui/rb-input"
+  },
+  "bugs": {
+    "url": "https://github.com/rapid-build-ui/rb-input/issues"
+  },
+  "flat": true,
+  "dependencies": {
+    "@polymer/polymer": "^3",
+    "@rapid-build-ui/rb-icon": "^0.0.3"
+  }
 }

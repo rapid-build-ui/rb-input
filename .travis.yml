@@ -1,0 +1,68 @@
+# ===============================
+# COMMON SETUP
+# ===============================
+# Travis only runs on commit to:
+# - continuous branch
+# - master branch (for releases)
+# ===============================
+# TOKENS AVAILABLE
+# - Added via web gui -> settings
+# - GITHUB_TOKEN
+# - NPM_TOKEN
+# - TRAVIS_TOKEN
+# ===============================
+language: node_js
+
+node_js:
+  - '8'
+
+env:
+  global:
+    - NPM_VERSION="6.1.0"
+    - RB_REPO_SLUG="$TRAVIS_REPO_SLUG"
+    - RB_PROJECT_PATH="$TRAVIS_BUILD_DIR"
+
+cache:
+  directories:
+    - node_modules     # repo root node_modules
+    - "$(npm root -g)" # global node_modules directory
+    - "$(npm bin -g)/rapid-build"
+
+# Install Global Dependencies
+# ===========================
+before_install:
+  - if [[ $(npm -v) != $NPM_VERSION ]]; then npm install -g npm@${NPM_VERSION}; fi # version check
+  - if [[ -z $(command -v rapid-build) ]]; then npm install -g rapid-build@5; fi   # if not installed
+
+# ===================================
+# SPECIFIC JOBS
+# ===================================
+# - before_script:
+#   Runs after npm install.
+#   Stops build immediately on error.
+# ===================================
+jobs:
+  include:
+    # Continuous
+    # ==========
+    - if: branch = continuous
+      before_script:
+        # build component
+        # copy root files to: dist/client/ (ex: LICENSE)
+        # trigger showcase ci build
+        - npm run build-continuous
+
+    # Release
+    # =======
+    - if: branch = master
+      deploy:
+        # build component
+        # copy root files to: dist/client/
+        # copy npm config to dist/client/
+        # publish npm package from dist/client/
+        # publish github release from master
+        script: npm run build-release
+        provider: script
+        skip_cleanup: true
+        on:
+          branch: master
