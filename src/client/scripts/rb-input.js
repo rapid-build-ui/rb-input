@@ -1,178 +1,81 @@
 /***********
  * RB-INPUT
  ***********/
-import { PolymerElement, html } from '../../../@polymer/polymer/polymer-element.js';
+import { props, withComponent, emit } from '../../../skatejs/dist/esnext/index.js';
+import { html, withRenderer } from './renderer.js';
 import validate from './validation.js';
-import template from '../views/rb-input.html';
 import type from './type.js';
 import validationMessages from './validation-messages.js';
 import '../../rb-icon/scripts/rb-icon.js';
+import template from '../views/rb-input.html';
 
-export class RbInput extends PolymerElement {
-	/* Lifecycle
-	 ************/
-	constructor() {
-		super();
-	}
-
-	connectedCallback() {
-		super.connectedCallback();
-		this._focusListener = this._onFocus.bind(this);
-		this._blurListener = this._onBlur.bind(this);
-		this._rbInput = this.root.querySelector('.rb-input');
-		this._input = this.root.querySelector('input');
-		this._input.addEventListener('focus', this._focusListener);
-		this._input.addEventListener('blur', this._blurListener);
-		this._subtext = this.subtext;
-
-		if (!!this.label)
-			this._rbInput.classList.add("with-label");
-
-		if ((this.value != undefined && this.value.length > 0) || !!this.placeholder)
-			this._displayLabelAbove();
-
-		if (!!this.placeholder)
-			this._addPlaceholder()
-	}
-
-	disconnectedCallback() {
-		super.disconnectedCallback();
-		this._input.removeEventListener('focus', this._focusListener);
-	}
-
+export class RbInput extends withComponent(withRenderer()) {
 	/* Properties
 	 *************/
-	static get properties() {
+	static get props() {
 		return {
-			kind: {
-				type: String,
-				value: 'default'
-			},
-			label: {
-				type: String
-			},
-			value: {
-				type: String,
-				notify: true,
-				observer: '_valueChanged'
-			},
-			disabled: {
-				type: Boolean,
-				value: false
-			},
-			right: {
-				type: Boolean,
-				value: false
-			},
-			subtext: {
-				type: String
-			},
-			validation: {
-				type: Object,
-			},
-			dirty: {
-				type: Boolean,
-				value: false
-			},
-			blured: {
-				type: Boolean,
-				value: false
-			},
-			placeholder: {
-				type: String
-			},
-			icon: {
-				type: String
-			},
-			iconSource: {
-				type: String
-			},
-			iconPosition: {
-				type: String
-			},
-			inline: {
-				type: Boolean,
-				value: false
-			},
-			type: {
-				type: String,
-				value: 'text'
-			}
+			disabled: props.boolean,
+			icon: props.string,
+			iconSource: props.string,
+			iconPosition: props.string,
+			inline: props.boolean,
+			kind: props.string,
+			label: props.string,
+			placeholder: props.string,
+			right: props.boolean,
+			subtext: props.string,
+			type: props.string,
+			value: props.string,
+			validation: Object.assign({}, props.array, {
+				// support for custom functions
+				deserialize(val) { return eval(val); }
+			}),
+			_eMsg: props.string,
+			_blurred: props.boolean,
+			_active: props.boolean,
+			_dirty: props.boolean,
+			_valid: Object.assign({}, props.boolean, {
+				default: true
+			})
 		}
 	}
 
-	/* Computed Bindings
-	 ********************/
-	_right(right) { // :string
-		return right ? 'right' : null;
-	}
-
-	_inline(inline) {
-		return inline ? 'inline' : null;
-	}
-
-
-	_setSubtext(subtext) { // :string
-		return subtext ? 'subtext' : null;
-	}
-
-	_iconPosition(position, icon) {
-		console.log(!!icon, !!position)
-		if (!!this.icon && !!position)
-			return 'icon-left';
-
-		if (!!this.icon)
-			return 'icon-right';
+	/* Observer
+	 ***********/
+	updating(prevProps) { // :void
+		if (prevProps.value === this.value) return;
+		emit(this, 'value-changed', { detail: { value: this.value } });
 	}
 
 	/* Event Handlers
 	 *****************/
-	_onFocus(e) {
-		this._displayLabelAbove();
-		this._rbInput.classList.add("active");
+	_onfocus(e) {
+		this._active = true;
+	}
+	async _oninput(e) { // TODO: add debouncing
+		const oldVal = this.value;
+		const newVal = e.target.value;
+		this.value = newVal;
+		if (!this._dirty && newVal !== oldVal)
+			return this._dirty = true;
+		if (!this._blurred) return;
+		if (!this.validation.length) return;
+		await this._validate();
+	}
+	async _onblur(e) {
+		this._active = false;
+		if (!this._dirty) return;
+		this._blurred = true;
+		this.value = e.target.value;
+		if (!this.validation.length) return;
+		await this._validate();
 	}
 
-	_onBlur(e) {
-		if (!!this.placeholder)
-			return;
-		if (this.value == undefined || this.value.length == 0)
-			this._rbInput.classList.remove("label-above");
-		this._rbInput.classList.remove("active");
-
-		if (this.dirty){
-			this.blured = true;
-			this._validate()
-		}
-	}
-
-	_valueChanged(newValue, oldValue) {
-		if (!newValue && (this.root.activeElement !== this._input))
-			this._rbInput.classList.remove("label-above");
-		else if (!!newValue)
-			this._displayLabelAbove()
-
-		if (newValue != oldValue)
-			this.dirty = true
-
-		if (!this.blured) return;
-
-		if (this.dirty)
-			this._validate()
-	}
-
-	_displayLabelAbove() {
-		if (!this._rbInput) return;
-		this._rbInput.classList.add("label-above");
-	}
-
-	_addPlaceholder() {
-		this._input.setAttribute('placeholder', this.placeholder);
-	}
-
-	async _validate() {
-		if (!this.validation) return;
+	/* Validation
+	 *************/
+	async _validate() { // :void
 		let valid = true;
-		for (const [i, validator] of eval(this.validation).entries()) {
+		for (const validator of this.validation) {
 			if (!validator) break;
 			if (!valid) break;
 			switch(true) {
@@ -186,37 +89,32 @@ export class RbInput extends PolymerElement {
 					valid = this._validateSimple(validator);
 			}
 		}
-		if (valid) this._subtext = this.subtext;
-		if (!valid) return this._rbInput.classList.add("error");
-		this._rbInput.classList.remove("error");
+		if (valid) this._eMsg = '';
+		this._valid = valid;
 	}
 
-	_validateSimple(validator) {
-		let out = validate[validator](this.value);
-		if (!out.valid)
-			this._subtext = out.message;
+	_validateSimple(validator) { // :boolean
+		const out = validate[validator](this.value);
+		if (!out.valid) this._eMsg = out.message;
 		return out.valid;
 	}
 
-	_validateObject(validator) {
-		let key = Object.keys(validator)[0]
-		let out = validate[key](this.value, validator[key]);
-		if (!out.valid)
-			this._subtext = out.message;
-
+	_validateObject(validator) { // :boolean
+		const key = Object.keys(validator)[0]
+		const out = validate[key](this.value, validator[key]);
+		if (!out.valid) this._eMsg = out.message;
 		return out.valid;
 	}
 
-	async _validateCustom(validator) {
-		let funcOutput = await validator(this.value);
-		let valid = funcOutput.valid
-		if (!valid) this._subtext = funcOutput.message;
-		return valid;
+	async _validateCustom(validator) { // :boolean (validator is function)
+		let out = await validator(this.value);
+		if (!out.valid) this._eMsg = out.message;
+		return out.valid;
 	}
 
 	/* Template
 	 ***********/
-	static get template() { // :string
+	render({ props }) { // :string
 		return html template;
 	}
 }

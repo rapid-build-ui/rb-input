@@ -1,16 +1,51 @@
 <div
-	disabled$="[[disabled]]"
-	class$="rb-input [[_right(right)]] [[_inline(inline)]] [[_iconPosition(iconPosition, icon)]]">
-	<label for="input">[[label]]</label>
-	<input id="input" class$="[[kind]]" value="{{value::input}}" type$="[[type]]">
+	disabled?="${props.disabled}"
+	class$="
+		rb-input
+		${props.kind || 'default'}
+		${props.right ? 'right' : ''}
+		${props.inline ? 'inline' : ''}
+		${props._valid ? 'valid' : 'invalid'}
+		${props._active ? 'active' : ''}
+		${props.label && 'with-label'}
+		${props.label && (props._active || props.placeholder || props.value) && 'label-above'}
+		${props.icon
+			? props.iconPosition
+				? `icon-${props.iconPosition}`
+				: 'icon-right'
+			: ''
+		}
+	">
+
+	${props.label
+		? html`<label for="input">${props.label}</label>`
+		: null
+	}
+
+	<input
+		id="input"
+		value="${props.value}"
+		type="${props.type || 'text'}"
+		placeholder="${props.placeholder}"
+		on-blur="${this._onblur.bind(this)}"
+		on-focus="${this._onfocus.bind(this)}"
+		on-input="${this._oninput.bind(this)}">
+
 	<b class="input-focus-line"></b>
-	<template is="dom-if" if="{{icon}}">
-		<rb-icon
-			kind="[[icon]]"
-			source="[[iconSource]]">
-		</rb-icon>
-	</template>
-	<span class$="[[_setSubtext(_subtext)]]">[[_subtext]]</span>
+
+	${props.icon
+		? html`
+			<rb-icon
+				kind="${props.icon}"
+				source$="${props.iconSource}">
+			</rb-icon>`
+		: null
+	}
+
+	${props._eMsg || props.subtext
+		? html`<span class="subtext">${props._eMsg || props.subtext}</span>`
+		: null
+	}
 </div>
 
 <link rel="stylesheet" href="../styles/rb-input.css">
