@@ -1,17 +1,16 @@
-/**************
- * TYPE HELPER
- **************/
+/**********************
+ * VALIDATION MESSAGES
+ **********************/
 const Messages = {
-	default: "not valid",
-	minLength: "minimum length ",
-	maxLength: "maximum length ",
-	minMaxLength: "length should be between ",
-	required: "required",
-	email: "invalid email",
-	range: "range should be between ",
-	number: "number is not valid",
-	regEx: 'regEx invalid'
-
+	default:      'not valid',
+	email:        'invalid email',
+	maxLength:    'maximum length',
+	minLength:    'minimum length',
+	minMaxLength: 'length should be between',
+	number:       'number is not valid',
+	range:        'range should be between',
+	regEx:        'regEx invalid',
+	required:     'required'
 }
 
 /* Export it!
