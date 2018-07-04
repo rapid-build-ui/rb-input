@@ -39,6 +39,6 @@
   "dependencies": {
     "@rapid-build-ui/rb-icon": "^0.0.3",
     "lit-html": "^0.10.2",
-    "skatejs": "^5.1.5"
+    "skatejs": "^5.2.0"
   }
 }
