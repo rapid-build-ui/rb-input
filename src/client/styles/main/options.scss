@@ -1,0 +1,30 @@
+/**********
+ * OPTIONS
+ **********/
+&.inline {
+	display: inline-flex;
+	margin-right: remy(25);
+}
+
+&.right {
+	direction: rtl;
+	label {
+		right: 0;
+		left: auto;
+		padding-right: 20px;
+		transform-origin: right;
+	}
+	&.label-above {
+		label {
+			padding-right: 0;
+		}
+	}
+	&.icon-left {
+		rb-icon {
+			padding-left: 0;
+		}
+		label {
+			padding-right: 0;
+		}
+	}
+}

@@ -3,16 +3,20 @@
  ******************/
 // Sassy Goodness
 @import 'sass/functions.scss';
-@import 'sass/variables.scss';
+@import 'sass/colors/palette.scss';
+@import 'sass/colors/form-control.scss';
 
 /* The Component
  ****************/
 .rb-input {
 	@import 'main/common.scss';
-	@import 'main/label.scss';
-	@import 'main/disabled.scss';
-	@import 'main/subtext.scss';
-	@import 'main/states.scss';
 	@import 'main/icon.scss';
+	@import 'main/input.scss';
+	@import 'main/label.scss';
+	@import 'main/placeholder.scss';
+	@import 'main/subtext.scss';
+	// In Order!
+	@import 'main/options.scss';
+	@import 'main/states.scss';
+	@import 'main/disabled.scss';
 }
-

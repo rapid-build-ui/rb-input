@@ -37,7 +37,8 @@
   },
   "flat": true,
   "dependencies": {
-    "@polymer/polymer": "^3",
-    "@rapid-build-ui/rb-icon": "^0.0.3"
+    "@rapid-build-ui/rb-icon": "^0.0.4",
+    "lit-html": "^0.10.2",
+    "skatejs": "^5.2.0"
   }
 }
