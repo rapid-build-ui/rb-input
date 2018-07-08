@@ -2,26 +2,17 @@
 # yarn lockfile v1
 
 
-"@polymer/polymer@^3":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@polymer/polymer/-/polymer-3.0.2.tgz#626e6f9fae9716b0962ce0211e21df242153eab2"
+"@rapid-build-ui/rb-icon@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-icon/-/rb-icon-0.0.4.tgz#29ef862dfcd60ff1c256929103fec569e7b4ac43"
   dependencies:
-    "@webcomponents/shadycss" "^1.2.0"
-
-"@rapid-build-ui/rb-icon@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-icon/-/rb-icon-0.0.3.tgz#ebb078b075c7743856674a47f9b7e2b7bb8b0aad"
-  dependencies:
-    "@polymer/polymer" "^3"
-
-"@webcomponents/shadycss@^1.2.0":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@webcomponents/shadycss/-/shadycss-1.3.1.tgz#9320a7a86c8abfec97d41a41e82691a0dfc3a13a"
+    lit-html "^0.10.2"
+    skatejs "^5.2.0"
 
 lit-html@^0.10.2:
   version "0.10.2"
   resolved "https://registry.yarnpkg.com/lit-html/-/lit-html-0.10.2.tgz#53c846afcf91bb1e6623179ef22e327ab8ac0e0e"
 
 skatejs@^5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/skatejs/-/skatejs-5.2.0.tgz#4d98863994004041a0b90c751ee99db4d315106f"
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/skatejs/-/skatejs-5.2.1.tgz#d53095b31a81e9654c1ed6a79b03f89b74235e26"
