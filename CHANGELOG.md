@@ -1,3 +1,10 @@
+## [0.0.4](https://github.com/rapid-build-ui/rb-input/compare/v0.0.3...v0.0.4) (2018-07-08)
+
+
+Release switches web components library Polymer 3 to [SkateJS](http://skatejs.netlify.com/) and view renderer [lit-html](https://polymer.github.io/lit-html/).
+
+
+
 ## 0.0.3 (2018-06-22)
 
 
