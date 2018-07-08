@@ -18,7 +18,7 @@ input {
 	border-bottom-style: solid;
 	border-bottom-color: mapGet($formControlColors, borders, input, default);
 	&:focus {
-		border-bottom-color: mapGet($formControlColors, borders, input, focus);
+		border-bottom-color: mapGet($formControlColors, borders, input, focus) !important;
 	}
 	&:hover {
 		border-bottom-color: mapGet($formControlColors, borders, input, hover);
