@@ -1,47 +1,33 @@
 & {
 	display: flex;
-	max-width: 167px;
-	position: relative;
 	flex-direction: column;
-	box-sizing: border-box;
-	margin-bottom: 25px;
+	position: relative;
+	max-width: 167px;
+	margin-bottom: remy(20); // 25
 
-	input {
-		display: inline-block;
-		box-sizing: border-box;
-		border: none;
-		border-bottom: 1px solid;
-		border-bottom-color: $GREY;
-		border-radius: 0;
-		color: #323232;
-		width: 100%;
-		padding: 0 0 8px 0;
-		font-size: inherit;
-		outline: none;
-		word-spacing: normal;
-		text-transform: none;
-		text-indent: 0px;
-		text-shadow: none;
-		text-align: start;
-		letter-spacing: 0.04em;
+	/* Font Size
+	 ************/
+	font-size: remy(16);
+	input, rb-icon { font-size: remy(15.5); }
+	input::placeholder { font-size: remy(13); }
+	rb-icon { font-size: remy(15); }
+	.subtext { font-size: remy(13); }
 
-		&::placeholder {
-			color: #b2b2b2;
-			font-size: .9em;
-			font-style: italic;
-		}
-	}
+	/* Font Weight
+	 **************/
+	font-weight: 300;
+	input { font-weight: 400; }
+	input::placeholder { font-weight: 300; }
 
-	&.right {
-		direction: rtl;
-	}
+	/* Letter Spacing
+	 *****************/
+	letter-spacing: .06em;
+	input { letter-spacing: .01em; }
+	input::placeholder { letter-spacing: .03em; }
 
-	&.with-label {
-		margin-top: 25px;
-	}
-
-	&.inline {
-		display: inline-flex;
-		margin-right: 25px;
-	}
+	/* Line Height
+	 **************/
+	line-height: remy(16);
+	input { line-height: remy(16); }
+	label { line-height: remy(24); }
 }
