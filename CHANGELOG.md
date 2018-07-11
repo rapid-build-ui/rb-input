@@ -1,3 +1,12 @@
+## [0.0.5](https://github.com/rapid-build-ui/rb-input/compare/v0.0.4...v0.0.5) (2018-07-11)
+
+
+Release contains:
+* some refactoring
+* bump deps: skatejs v5.2.1 and rb-icon v0.0.5
+
+
+
 ## [0.0.4](https://github.com/rapid-build-ui/rb-input/compare/v0.0.3...v0.0.4) (2018-07-08)
 
 
