@@ -1,8 +1,9 @@
 /***********
  * RB-INPUT
  ***********/
-import { props, withComponent, emit } from '../../../skatejs/dist/esnext/index.js';
+import { props, withComponent } from '../../../skatejs/dist/esnext/index.js';
 import { html, withRenderer } from './renderer.js';
+import EventService from './event-service.js';
 import validate from './validation.js';
 import type from './type.js';
 import validationMessages from './validation-messages.js';
@@ -10,6 +11,13 @@ import '../../rb-icon/scripts/rb-icon.js';
 import template from '../views/rb-input.html';
 
 export class RbInput extends withComponent(withRenderer()) {
+	/* Lifecycle
+	 ************/
+	constructor() {
+		super();
+		this.rbEvent = EventService.call(this);
+	}
+
 	/* Properties
 	 *************/
 	static get props() {
@@ -44,7 +52,9 @@ export class RbInput extends withComponent(withRenderer()) {
 	 ***********/
 	updating(prevProps) { // :void
 		if (prevProps.value === this.value) return;
-		emit(this, 'value-changed', { detail: { value: this.value } });
+		this.rbEvent.emit(this, 'value-changed', {
+			detail: { value: this.value }
+		});
 	}
 
 	/* Event Handlers

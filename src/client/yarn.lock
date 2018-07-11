@@ -2,17 +2,17 @@
 # yarn lockfile v1
 
 
-"@rapid-build-ui/rb-icon@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-icon/-/rb-icon-0.0.4.tgz#29ef862dfcd60ff1c256929103fec569e7b4ac43"
+"@rapid-build-ui/rb-icon@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-icon/-/rb-icon-0.0.5.tgz#3d772fa4379d3a5f787b69763904c29b717290d1"
   dependencies:
     lit-html "^0.10.2"
-    skatejs "^5.2.0"
+    skatejs "^5.2.1"
 
 lit-html@^0.10.2:
   version "0.10.2"
   resolved "https://registry.yarnpkg.com/lit-html/-/lit-html-0.10.2.tgz#53c846afcf91bb1e6623179ef22e327ab8ac0e0e"
 
-skatejs@^5.2.0:
+skatejs@^5.2.1:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/skatejs/-/skatejs-5.2.1.tgz#d53095b31a81e9654c1ed6a79b03f89b74235e26"
