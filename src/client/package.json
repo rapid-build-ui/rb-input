@@ -37,8 +37,7 @@
   },
   "flat": true,
   "dependencies": {
-    "@rapid-build-ui/rb-icon": "^0.0.5",
-    "lit-html": "^0.10.2",
-    "skatejs": "^5.2.1"
+    "@rapid-build-ui/rb-base": "^0.0.1",
+    "@rapid-build-ui/rb-icon": "^0.0.6"
   }
 }
