@@ -1,13 +1,9 @@
 /*********************
- * Validation Service
+ * VALIDATION SERVICE
  *********************/
-
 import validators from './validators.js'
 import appender from './appender.js'
-import type from '../type.js'
-
-/* API (all return boolean)
- ******/
+import type from '../../../rb-base/scripts/type-service.js';
 
 const Validation = {
 	test: validators,

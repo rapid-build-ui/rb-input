@@ -1,4 +1,7 @@
-import type from '../type.js'
+/*************
+ * VALIDATORS
+ *************/
+import type from '../../../rb-base/scripts/type-service.js';
 import message from './messages.js'
 
 /* Helpers (all return boolean)
