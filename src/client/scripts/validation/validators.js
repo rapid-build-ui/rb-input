@@ -1,8 +1,8 @@
-/*********************
- * Validation Service
- *********************/
-import type from './type.js';
-import message from './validation-messages.js'
+/*************
+ * VALIDATORS
+ *************/
+import type from '../../../rb-base/scripts/type-service.js';
+import message from './messages.js'
 
 /* Helpers (all return boolean)
  **********/
@@ -109,10 +109,8 @@ const Help = {
 		return params.minOrMaxMsgNum = minOrMax === 'min' ? params.min : params.max;
 	}
 }
+const Validators = {
 
-/* API (all return boolean)
- ******/
-const Validation = {
 	charset1(val) {
 		if (!val) return true;
 		return /^[a-zA-Z0-9-',. ]+$/.test(val);
@@ -301,4 +299,4 @@ const Validation = {
 
 /* Export it!
  *************/
-export default Validation;
+export default Validators;

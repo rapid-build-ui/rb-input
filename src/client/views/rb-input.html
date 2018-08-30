@@ -25,11 +25,13 @@
 	<input
 		id="input"
 		value="${props.value}"
+		name="${props.name}"
 		type="${props.type || 'text'}"
 		placeholder="${props.placeholder}"
 		on-blur="${this._onblur.bind(this)}"
 		on-focus="${this._onfocus.bind(this)}"
-		on-input="${this._oninput.bind(this)}">
+		on-input="${this._oninput.bind(this)}"
+		on-change="${this._onchange.bind(this)}">
 
 	<b class="input-focus-line"></b>
 

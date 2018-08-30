@@ -1,21 +1,23 @@
 /***********
  * RB-INPUT
  ***********/
-import { props, withComponent } from '../../../skatejs/dist/esnext/index.js';
-import { html, withRenderer } from './renderer.js';
-import EventService from './event-service.js';
-import validate from './validation.js';
-import type from './type.js';
-import validationMessages from './validation-messages.js';
+import { props, html, RbBase } from '../../rb-base/scripts/rb-base.js';
+import Validation from './validation/validation.js';
 import '../../rb-icon/scripts/rb-icon.js';
 import template from '../views/rb-input.html';
 
-export class RbInput extends withComponent(withRenderer()) {
+export class RbInput extends RbBase() {
 	/* Lifecycle
 	 ************/
 	constructor() {
 		super();
-		this.rbEvent = EventService.call(this);
+		this.name = this.props.name || this.rb.guid.create(5);
+		Validation.onFormSubmit.call(this);
+	}
+
+	viewReady() {
+		super.viewReady && super.viewReady();
+		Validation.append.call(this);
 	}
 
 	/* Properties
@@ -29,6 +31,7 @@ export class RbInput extends withComponent(withRenderer()) {
 			inline: props.boolean,
 			kind: props.string,
 			label: props.string,
+			name: props.string,
 			placeholder: props.string,
 			right: props.boolean,
 			subtext: props.string,
@@ -48,11 +51,12 @@ export class RbInput extends withComponent(withRenderer()) {
 		}
 	}
 
+
 	/* Observer
 	 ***********/
 	updating(prevProps) { // :void
 		if (prevProps.value === this.value) return;
-		this.rbEvent.emit(this, 'value-changed', {
+		this.rb.events.emit(this, 'value-changed', {
 			detail: { value: this.value }
 		});
 	}
@@ -62,6 +66,12 @@ export class RbInput extends withComponent(withRenderer()) {
 	_onfocus(e) {
 		this._active = true;
 	}
+
+	_onchange(e) {
+		if (!this._hiddenInput) return;
+		this._hiddenInput.value = this.value;
+	}
+
 	async _oninput(e) { // TODO: add debouncing
 		const oldVal = this.value;
 		const newVal = e.target.value;
@@ -69,57 +79,15 @@ export class RbInput extends withComponent(withRenderer()) {
 		if (!this._dirty && newVal !== oldVal)
 			return this._dirty = true;
 		if (!this._blurred) return;
-		if (!this.validation.length) return;
-		await this._validate();
+
+		await Validation.validate.call(this);
 	}
 	async _onblur(e) {
 		this._active = false;
 		if (!this._dirty) return;
 		this._blurred = true;
 		this.value = e.target.value;
-		if (!this.validation.length) return;
-		await this._validate();
-	}
-
-	/* Validation
-	 *************/
-	async _validate() { // :void
-		let valid = true;
-		for (const validator of this.validation) {
-			if (!validator) break;
-			if (!valid) break;
-			switch(true) {
-				case type.is.function(validator):
-					valid = await this._validateCustom(validator)
-					break;
-				case type.is.object(validator):
-					valid = this._validateObject(validator);
-					break;
-				default:
-					valid = this._validateSimple(validator);
-			}
-		}
-		if (valid) this._eMsg = '';
-		this._valid = valid;
-	}
-
-	_validateSimple(validator) { // :boolean
-		const out = validate[validator](this.value);
-		if (!out.valid) this._eMsg = out.message;
-		return out.valid;
-	}
-
-	_validateObject(validator) { // :boolean
-		const key = Object.keys(validator)[0]
-		const out = validate[key](this.value, validator[key]);
-		if (!out.valid) this._eMsg = out.message;
-		return out.valid;
-	}
-
-	async _validateCustom(validator) { // :boolean (validator is function)
-		let out = await validator(this.value);
-		if (!out.valid) this._eMsg = out.message;
-		return out.valid;
+		await Validation.validate.call(this);
 	}
 
 	/* Template
