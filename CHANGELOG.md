@@ -1,3 +1,17 @@
+## [0.0.6](https://github.com/rapid-build-ui/rb-input/compare/v0.0.5...v0.0.6) (2018-08-30)
+
+
+### Features
+
+* **validation:** add support for native form validation ([f6bce5a](https://github.com/rapid-build-ui/rb-input/commit/f6bce5a))
+
+
+### Dependency Updates
+
+* **rb-base:** replace deps lit-html and skatejs with @rapid-build-ui/rb-base and make corresponding updates ([cb28065](https://github.com/rapid-build-ui/rb-input/commit/cb28065))
+
+
+
 ## [0.0.5](https://github.com/rapid-build-ui/rb-input/compare/v0.0.4...v0.0.5) (2018-07-11)
 
 
