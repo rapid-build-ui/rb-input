@@ -4,6 +4,7 @@
 import { props } from '../../../rb-base/scripts/rb-base.js';
 import type from '../../../rb-base/scripts/type-service.js';
 import validate from './validators.js'
+import message from './messages.js'
 
 const Validation = superClass => class extends superClass {
 	/* Lifecycle
@@ -77,7 +78,7 @@ const Validation = superClass => class extends superClass {
 
 		this._form.addEventListener('submit', (event) => {
 			if (!this.validation) return;
-			validate.call(this);
+			this.validate()
 			if (this._form.checkValidity()) return
 			event.preventDefault()
 		});
@@ -86,7 +87,7 @@ const Validation = superClass => class extends superClass {
 	_validateSimple(validator) { // :boolean
 		const out = validate[validator](this.value);
 		if (!out.valid) {
-			this._eMsg = out.message;
+			this._eMsg = out.message || `${validator} ${message['default']}`;
 			this._input.setCustomValidity(out.message)
 			if (!!this._form) this._form.checkValidity()
 		}
@@ -97,7 +98,7 @@ const Validation = superClass => class extends superClass {
 		const key = Object.keys(validator)[0]
 		const out = validate[key](this.value, validator[key]);
 		if (!out.valid) {
-			this._eMsg = out.message;
+			this._eMsg = out.message || `${validator} ${message['default']}`;
 			this._input.setCustomValidity(out.message)
 		}
 		return out.valid;
@@ -106,7 +107,7 @@ const Validation = superClass => class extends superClass {
 	async _validateCustom(validator) { // :boolean (validator is function)
 		let out = await validator(this.value);
 		if (!out.valid) {
-			this._eMsg = out.message;
+			this._eMsg = out.message || `${validator} ${message['default']}`;
 			this._input.setCustomValidity(out.message)
 		}
 		return out.valid;
