@@ -12,8 +12,10 @@ const Validation = superClass => class extends superClass {
 	viewReady() {
 		super.viewReady && super.viewReady();
 		if (!this.validation.length) return;
-		this._onFormSubmit()
-		this._addHiddenInput()
+		this._form  = this.closest('form');
+		this._input = this.shadowRoot.querySelector('input');
+		this._onFormSubmit();
+		this._addHiddenInput();
 	}
 
 	disconnectedCallback() {
@@ -73,10 +75,9 @@ const Validation = superClass => class extends superClass {
 	}
 
 	_onFormSubmit() {
-		this._form = this.closest('form');
 		if (!this._form) return;
 
-		this._form.addEventListener('submit', (event) => {
+		this.rb.events.add(this._form, 'submit', event => {
 			if (!this.validation) return;
 			this.validate()
 			if (this._form.checkValidity()) return
@@ -114,15 +115,14 @@ const Validation = superClass => class extends superClass {
 	}
 
 	_addHiddenInput() {
-		this._input = this.shadowRoot.querySelector('input');
-		this._form = this.closest('form');
 		if (!this._form) return;
 		this._hiddenInput = document.createElement('input');
 		this._hiddenInput.setAttribute('hidden', true);
 		this._hiddenInput.setAttribute('name', this.name);
 		this._form.appendChild(this._hiddenInput);
 
-		this._hiddenInput.addEventListener('invalid', (event) => {
+		// prevent native browser error message
+		this.rb.events.add(this._hiddenInput, 'invalid', event => {
 			event.preventDefault();
 		});
 	}
