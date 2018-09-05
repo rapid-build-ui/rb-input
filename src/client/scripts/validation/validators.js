@@ -110,24 +110,8 @@ const Help = {
 	}
 }
 const Validators = {
-
-	charset1(val) {
-		if (!val) return true;
-		return /^[a-zA-Z0-9-',. ]+$/.test(val);
-	},
-
-	charset2(val) {
-		if (!val) return true;
-		return /^[a-zA-Z0-9-. _]+$/.test(val);
-	},
-
-	charset3(val) {
-		if (!val) return true;
-		return /^[a-zA-Z-'. ]+$/.test(val);
-	},
-
 	currency(val) {
-		if (!val) return true;
+		if (!val) return {valid: true};
 		return /^[-]?\d{1,9}(\.\d{1,2})?$/.test(val);
 	},
 
@@ -135,22 +119,24 @@ const Validators = {
 	date(val) {
 		if (!val || type.is.undefined(val)) return true;
 		// return dateService.isValidDate(val);
-		return true; // TODO: create dateService.isValidDate()
+		return {valid: true}; // TODO: create dateService.isValidDate()
 	},
 
 	dateRange(val, params) {
 		// if ((type.is.undefined(val)) || !val || !dateService.isValidDate(val))
 		if ((type.is.undefined(val)) || !val) // TODO: create dateService.isValidDate()
-			return true;
+			return {valid: true};;
 		if (!params.fromDate || !params.thruDate)
-			return true;
+			return {valid: true};
 		// return dateService.withinRange(val, params.fromDate, params.thruDate);
-		return true; // TODO: create dateService.withinRange()
+		return {valid: true};; // TODO: create dateService.withinRange()
 	},
 
 	email(val) {
-		if (!val) return true;
-		return /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(val);
+		if (!val) return {valid: true};
+		return {
+			valid: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(val)
+		}
 	},
 
 	fax(val) {
@@ -159,7 +145,7 @@ const Validators = {
 
 	integer(val, params={}) {
 		var re;
-		if (!val) return true;
+		if (!val) return {valid: true};
 		re = params.positive ? /^\d*$/ : /^\-?\d*$/;
 		return re.test(val);
 	},
@@ -204,13 +190,9 @@ const Validators = {
 		return output;
 	},
 
-	name(val) {
-		if (!val) return true;
-		return /^[a-zA-Z-',. ]+$/.test(val);
-	},
 
 	noDups(val, params={}) {
-		if (!val) return true;
+		if (!val) return {valid: true};
 		if (!type.is.array(val)) return true;
 		// return !new Collection(val).hasDups(params.exclude);
 		return false; // TODO: create Collection.hasDups();
@@ -218,27 +200,27 @@ const Validators = {
 
 	number(val, params={}) {
 		var re;
-		if (!val) return true;
+		if (!val) return {valid: true};
 		re = params.positive ? /^\d+\.?\d*$/ : /^\-?\d+\.?\d*$/;
 		return {
 					valid: re.test(val),
-					message: 'not a valid number'
+					message: `${message['number']}`
 				}
 	},
 
-	password(val) {
-		if (!val) return true;
-		return val.length >= 8 && val.length <= 15 && /[A-Z]/.test(val) && /[a-z]/.test(val) && /[0-9]/.test(val) && !/['" ]+/.test(val);
-	},
 
 	phone(val) {
-		if (!val) return true;
-		if (/[\W]|\_/.test(val)) return false;
-		return /^[0-9]{10}$/.test(val);
+		if (!val) return {valid: true};
+		// if (/[\W]|\_/.test(val)) return false;
+
+		return {
+					valid: /^[0-9]{10}$/.test(val),
+					message: `${message['phone']}`
+				}
 	},
 
 	phoneExt(val, params={}) {
-		if (!val) return true;
+		if (!val) return {valid: true};
 		if (type.is.undefined(params.length))
 			params.length = 5;
 		return this.maxLength(val, params);
@@ -254,7 +236,7 @@ const Validators = {
 	},
 
 	regEx(val, params) {
-		if (!val) return true;
+		if (!val) return {valid: true};
 		return {valid: val.match(params)};
 	},
 
@@ -288,7 +270,7 @@ const Validators = {
 	},
 
 	zip(val) {
-		if (!val) return true;
+		if (!val) return {valid: true};
 		if (this.integer(val) === false) return false;
 		return this.minMaxLength(val, {
 			min: 5,

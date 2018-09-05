@@ -1,6 +1,6 @@
 <div
-	disabled?="${props.disabled}"
-	class$="
+	?disabled="${props.disabled}"
+	class="
 		rb-input
 		${props.kind || 'default'}
 		${props.right ? 'right' : ''}
@@ -24,14 +24,14 @@
 
 	<input
 		id="input"
-		value="${props.value}"
 		name="${props.name}"
+		.value="${props.value}"
 		type="${props.type || 'text'}"
 		placeholder="${props.placeholder}"
-		on-blur="${this._onblur.bind(this)}"
-		on-focus="${this._onfocus.bind(this)}"
-		on-input="${this._oninput.bind(this)}"
-		on-change="${this._onchange.bind(this)}">
+		@blur="${this._onblur.bind(this)}"
+		@focus="${this._onfocus.bind(this)}"
+		@input="${this._oninput.bind(this)}"
+		@change="${this._onchange.bind(this)}">
 
 	<b class="input-focus-line"></b>
 

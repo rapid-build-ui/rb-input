@@ -1,92 +1,137 @@
 /*********************
  * VALIDATION SERVICE
  *********************/
-import validators from './validators.js'
-import appender from './appender.js'
+import { props } from '../../../rb-base/scripts/rb-base.js';
 import type from '../../../rb-base/scripts/type-service.js';
+import validate from './validators.js'
+import message from './messages.js'
 
-const Validation = {
-	test: validators,
-	append: appender,
-	validate: _validate,
-	onFormSubmit: _onFormSubmit
-}
+const Validation = superClass => class extends superClass {
+	/* Lifecycle
+	 ************/
+	viewReady() {
+		super.viewReady && super.viewReady();
+		if (!this.validation.length) return;
+		this._form  = this.closest('form');
+		this._input = this.shadowRoot.querySelector('input');
+		this._onFormSubmit();
+		this._addHiddenInput();
+	}
 
-async function _validate() { // :void
-	if (!this.validation.length) return;
-	let valid = true;
-	for (const validator of this.validation) {
-		if (!validator) break;
-		if (!valid) break;
-		switch(true) {
-			case type.is.function(validator):
-				valid = await _validateCustom.call(this, validator)
-				break;
-			case type.is.object(validator):
-				valid = _validateObject.call(this, validator);
-				break;
-			default:
-				valid = _validateSimple.call(this, validator);
+	disconnectedCallback() {
+		super.disconnectedCallback();
+		if (!this.validation.length) return;
+		this._removeHiddenInput();
+	}
+
+	/* Properties
+	 *************/
+	static get props() {
+		return {
+			...super.props,
+			_eMsg: props.string,
+			_valid: Object.assign({}, props.boolean, {
+				default: true
+			}),
+			validation: Object.assign({}, props.array, {
+				// support for custom functions
+				deserialize(val) { return eval(val); }
+			})
 		}
 	}
-	if (valid) {
-		this._eMsg = '';
-		this._input.setCustomValidity("")
+
+	async validate() { // :void
+		if (!this.validation.length) return;
+		let valid = true;
+		for (const validator of this.validation) {
+			if (!validator) break;
+			if (!valid) break;
+			switch(true) {
+				case type.is.function(validator):
+					valid = await this._validateCustom.call(this, validator)
+					break;
+				case type.is.object(validator):
+					valid = this._validateObject.call(this, validator);
+					break;
+				default:
+					valid = this._validateSimple(validator);
+			}
+		}
+		if (valid) {
+			this._eMsg = '';
+			this._input.setCustomValidity("")
+		}
+
+		this._valid = valid;
+
+		if (!this._hiddenInput) return;
+
+		if (valid) {
+			this._hiddenInput.setCustomValidity('')
+		} else {
+			this._hiddenInput.setCustomValidity('invalid')
+		}
+
 	}
 
-	this._valid = valid;
+	_onFormSubmit() {
+		if (!this._form) return;
 
-	if (!this._hiddenInput) return;
-
-	if (valid) {
-		this._hiddenInput.setCustomValidity('')
-	} else {
-		this._hiddenInput.setCustomValidity('invalid')
+		this.rb.events.add(this._form, 'submit', event => {
+			if (!this.validation) return;
+			this.validate()
+			if (this._form.checkValidity()) return
+			event.preventDefault()
+		});
 	}
 
-}
-
-function _onFormSubmit() {
-	this._form = this.closest('form');
-	if (!this._form) return;
-
-	this._form.addEventListener('submit', (event) => {
-		if (!this.validation) return;
-		Validation.validate.call(this);
-		if (this._form.checkValidity()) return
-		event.preventDefault()
-	});
-}
-
-function _validateSimple(validator) { // :boolean
-	const out = Validation.test[validator](this.value);
-	if (!out.valid) {
-		this._eMsg = out.message;
-		this._input.setCustomValidity(out.message)
-		if (!!this._form) this._form.checkValidity()
+	_validateSimple(validator) { // :boolean
+		const out = validate[validator](this.value);
+		if (!out.valid) {
+			this._eMsg = out.message || `${validator} ${message['default']}`;
+			this._input.setCustomValidity(out.message)
+			if (!!this._form) this._form.checkValidity()
+		}
+		return out.valid;
 	}
-	return out.valid;
-}
 
-function _validateObject(validator) { // :boolean
-	const key = Object.keys(validator)[0]
-	const out = Validation.test[key](this.value, validator[key]);
-	if (!out.valid) {
-		this._eMsg = out.message;
-		this._input.setCustomValidity(out.message)
+	_validateObject(validator) { // :boolean
+		const key = Object.keys(validator)[0]
+		const out = validate[key](this.value, validator[key]);
+		if (!out.valid) {
+			this._eMsg = out.message || `${validator} ${message['default']}`;
+			this._input.setCustomValidity(out.message)
+		}
+		return out.valid;
 	}
-	return out.valid;
-}
 
-async function _validateCustom(validator) { // :boolean (validator is function)
-	let out = await validator(this.value);
-	if (!out.valid) {
-		this._eMsg = out.message;
-		this._input.setCustomValidity(out.message)
+	async _validateCustom(validator) { // :boolean (validator is function)
+		let out = await validator(this.value);
+		if (!out.valid) {
+			this._eMsg = out.message || `${validator} ${message['default']}`;
+			this._input.setCustomValidity(out.message)
+		}
+		return out.valid;
 	}
-	return out.valid;
-}
 
+	_addHiddenInput() {
+		if (!this._form) return;
+		this._hiddenInput = document.createElement('input');
+		this._hiddenInput.setAttribute('hidden', true);
+		this._hiddenInput.setAttribute('name', this.name);
+		this._form.appendChild(this._hiddenInput);
+
+		// prevent native browser error message
+		this.rb.events.add(this._hiddenInput, 'invalid', event => {
+			event.preventDefault();
+		});
+	}
+
+	_removeHiddenInput() {
+		if (!this._hiddenInput) return;
+		this._hiddenInput.remove()
+	}
+}
 /* Export it!
  *************/
 export default Validation;

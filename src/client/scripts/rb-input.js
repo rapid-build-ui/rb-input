@@ -6,24 +6,19 @@ import Validation from './validation/validation.js';
 import '../../rb-icon/scripts/rb-icon.js';
 import template from '../views/rb-input.html';
 
-export class RbInput extends RbBase() {
+export class RbInput extends Validation(RbBase()) {
 	/* Lifecycle
 	 ************/
 	constructor() {
 		super();
 		this.name = this.props.name || this.rb.guid.create(5);
-		Validation.onFormSubmit.call(this);
-	}
-
-	viewReady() {
-		super.viewReady && super.viewReady();
-		Validation.append.call(this);
 	}
 
 	/* Properties
 	 *************/
 	static get props() {
 		return {
+			...super.props,
 			disabled: props.boolean,
 			icon: props.string,
 			iconSource: props.string,
@@ -37,17 +32,10 @@ export class RbInput extends RbBase() {
 			subtext: props.string,
 			type: props.string,
 			value: props.string,
-			validation: Object.assign({}, props.array, {
-				// support for custom functions
-				deserialize(val) { return eval(val); }
-			}),
-			_eMsg: props.string,
 			_blurred: props.boolean,
 			_active: props.boolean,
 			_dirty: props.boolean,
-			_valid: Object.assign({}, props.boolean, {
-				default: true
-			})
+
 		}
 	}
 
@@ -80,14 +68,14 @@ export class RbInput extends RbBase() {
 			return this._dirty = true;
 		if (!this._blurred) return;
 
-		await Validation.validate.call(this);
+		await this.validate();
 	}
 	async _onblur(e) {
 		this._active = false;
 		if (!this._dirty) return;
 		this._blurred = true;
 		this.value = e.target.value;
-		await Validation.validate.call(this);
+		await this.validate();
 	}
 
 	/* Template
