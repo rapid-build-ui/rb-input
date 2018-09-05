@@ -1,6 +1,6 @@
 {
   "name": "rb-input-server",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "routes.js",
   "description": "Rapid Build UI Web Component Server: rb-input",
   "license": "MIT",

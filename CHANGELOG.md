@@ -1,3 +1,12 @@
+## [0.0.7](https://github.com/rapid-build-ui/rb-input/compare/v0.0.6...v0.0.7) (2018-09-05)
+
+
+### Dependency Updates
+
+* **rb-base:** bump to v0.0.2 ([2f16f1b](https://github.com/rapid-build-ui/rb-input/commit/2f16f1b))
+
+
+
 ## [0.0.6](https://github.com/rapid-build-ui/rb-input/compare/v0.0.5...v0.0.6) (2018-08-30)
 
 
