@@ -1,3 +1,17 @@
+## [0.0.8](https://github.com/rapid-build-ui/rb-input/compare/v0.0.7...v0.0.8) (2018-09-08)
+
+
+### Bug Fixes
+
+* **icon-source:** get it working again ([18e5809](https://github.com/rapid-build-ui/rb-input/commit/18e5809))
+
+
+### Dependency Updates
+
+* **new dependency:** [@rapid-build-ui/form-control](https://github.com/rapid-build-ui/form-control) ([aae8c2a](https://github.com/rapid-build-ui/rb-input/commit/aae8c2a))
+
+
+
 ## [0.0.7](https://github.com/rapid-build-ui/rb-input/compare/v0.0.6...v0.0.7) (2018-09-05)
 
 
