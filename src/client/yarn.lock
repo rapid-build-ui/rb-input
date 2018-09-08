@@ -2,6 +2,12 @@
 # yarn lockfile v1
 
 
+"@rapid-build-ui/form-control@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@rapid-build-ui/form-control/-/form-control-0.0.1.tgz#cdae8bb5f023472c2226196410a487c58897acd6"
+  dependencies:
+    "@rapid-build-ui/rb-base" "^0.0.2"
+
 "@rapid-build-ui/rb-base@^0.0.2":
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-base/-/rb-base-0.0.2.tgz#c79683ad6d021a60dce320ff8cbc3bcabf8bddcd"

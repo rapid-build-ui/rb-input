@@ -2,31 +2,22 @@
  * RB-INPUT
  ***********/
 import { props, html, RbBase } from '../../rb-base/scripts/rb-base.js';
-import Validation from './validation/validation.js';
+import FormControl from '../../form-control/scripts/form-control.js';
 import '../../rb-icon/scripts/rb-icon.js';
 import template from '../views/rb-input.html';
 
-export class RbInput extends Validation(RbBase()) {
-	/* Lifecycle
-	 ************/
-	constructor() {
-		super();
-		this.name = this.props.name || this.rb.guid.create(5);
-	}
-
+export class RbInput extends FormControl(RbBase()) {
 	/* Properties
 	 *************/
-	static get props() {
+	static get props() { // :object
 		return {
 			...super.props,
-			disabled: props.boolean,
 			icon: props.string,
 			iconSource: props.string,
 			iconPosition: props.string,
 			inline: props.boolean,
 			kind: props.string,
 			label: props.string,
-			name: props.string,
 			placeholder: props.string,
 			right: props.boolean,
 			subtext: props.string,
@@ -34,11 +25,9 @@ export class RbInput extends Validation(RbBase()) {
 			value: props.string,
 			_blurred: props.boolean,
 			_active: props.boolean,
-			_dirty: props.boolean,
-
+			_dirty: props.boolean
 		}
 	}
-
 
 	/* Observer
 	 ***********/
@@ -55,11 +44,6 @@ export class RbInput extends Validation(RbBase()) {
 		this._active = true;
 	}
 
-	_onchange(e) {
-		if (!this._hiddenInput) return;
-		this._hiddenInput.value = this.value;
-	}
-
 	async _oninput(e) { // TODO: add debouncing
 		const oldVal = this.value;
 		const newVal = e.target.value;
@@ -67,9 +51,9 @@ export class RbInput extends Validation(RbBase()) {
 		if (!this._dirty && newVal !== oldVal)
 			return this._dirty = true;
 		if (!this._blurred) return;
-
 		await this.validate();
 	}
+
 	async _onblur(e) {
 		this._active = false;
 		if (!this._dirty) return;

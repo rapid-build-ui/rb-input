@@ -30,8 +30,7 @@
 		placeholder="${props.placeholder}"
 		@blur="${this._onblur.bind(this)}"
 		@focus="${this._onfocus.bind(this)}"
-		@input="${this._oninput.bind(this)}"
-		@change="${this._onchange.bind(this)}">
+		@input="${this._oninput.bind(this)}">
 
 	<b class="input-focus-line"></b>
 
@@ -39,7 +38,7 @@
 		? html`
 			<rb-icon
 				kind="${props.icon}"
-				source$="${props.iconSource}">
+				source="${props.iconSource}">
 			</rb-icon>`
 		: null
 	}
