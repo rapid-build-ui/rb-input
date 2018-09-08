@@ -15,7 +15,6 @@ common:
 			minFile:
 				scripts: [
 					'scripts/!(rb-*.js)'
-					'scripts/validation/**'
 				]
 
 	extra:
