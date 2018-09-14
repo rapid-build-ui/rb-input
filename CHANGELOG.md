@@ -1,3 +1,15 @@
+## [0.0.9](https://github.com/rapid-build-ui/rb-input/compare/v0.0.8...v0.0.9) (2018-09-14)
+
+
+### Dependency Updates
+
+* **bump deps:** ([208d31e](https://github.com/rapid-build-ui/rb-input/commit/208d31e))
+	* **rb-base** to v0.0.3
+	* **rb-icon** to v0.0.8
+	* **form-control** to v0.0.2
+
+
+
 ## [0.0.8](https://github.com/rapid-build-ui/rb-input/compare/v0.0.7...v0.0.8) (2018-09-08)
 
 
