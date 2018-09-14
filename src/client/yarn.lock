@@ -2,28 +2,28 @@
 # yarn lockfile v1
 
 
-"@rapid-build-ui/form-control@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@rapid-build-ui/form-control/-/form-control-0.0.1.tgz#cdae8bb5f023472c2226196410a487c58897acd6"
-  dependencies:
-    "@rapid-build-ui/rb-base" "^0.0.2"
-
-"@rapid-build-ui/rb-base@^0.0.2":
+"@rapid-build-ui/form-control@^0.0.2":
   version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-base/-/rb-base-0.0.2.tgz#c79683ad6d021a60dce320ff8cbc3bcabf8bddcd"
+  resolved "https://registry.yarnpkg.com/@rapid-build-ui/form-control/-/form-control-0.0.2.tgz#686017499819459462ce3a7958249fe5117c09b1"
   dependencies:
-    lit-html "^0.11.1"
+    "@rapid-build-ui/rb-base" "^0.0.3"
+
+"@rapid-build-ui/rb-base@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-base/-/rb-base-0.0.3.tgz#799f2aa04b146122b901a74482572a6aff451399"
+  dependencies:
+    lit-html "^0.11.3"
     skatejs "^5.2.4"
 
-"@rapid-build-ui/rb-icon@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-icon/-/rb-icon-0.0.7.tgz#8641ff3791c5ed579ce2b23ac45ca668b1ffecd5"
+"@rapid-build-ui/rb-icon@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-icon/-/rb-icon-0.0.8.tgz#f796e16b37bb67ec66f64052a8e8ab0880c31e94"
   dependencies:
-    "@rapid-build-ui/rb-base" "^0.0.2"
+    "@rapid-build-ui/rb-base" "^0.0.3"
 
-lit-html@^0.11.1:
-  version "0.11.1"
-  resolved "https://registry.yarnpkg.com/lit-html/-/lit-html-0.11.1.tgz#ad3dcfea1dbaf65fadf335fa1e2bd9ac19255394"
+lit-html@^0.11.3:
+  version "0.11.3"
+  resolved "https://registry.yarnpkg.com/lit-html/-/lit-html-0.11.3.tgz#34d6eb27ef0c7fdae542c7b50762526704605681"
 
 skatejs@^5.2.4:
   version "5.2.4"
