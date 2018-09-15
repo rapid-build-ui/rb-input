@@ -47,20 +47,3 @@ common:
 		server:
 			js:
 				es6: true
-
-# TODO:
-# HOST COMPONENT FROM THIS SERVER
-# ===============================
-host:
-	build: server: true
-	browser: open: true, reload: true
-
-	ports:
-		server: 5002
-		reload: 5003
-
-	extra:
-		copy:
-			client: [
-				'node_modules/**'
-			]
