@@ -7,6 +7,14 @@ import '../../rb-icon/scripts/rb-icon.js';
 import template from '../views/rb-input.html';
 
 export class RbInput extends FormControl(RbBase()) {
+	/* Lifecycle
+	 ************/
+	viewReady() { // :void
+		super.viewReady && super.viewReady();
+		this.rb.elms.focusElm = this.shadowRoot.querySelector('input');
+		this.rb.elms.formControl = this.rb.elms.focusElm
+	}
+
 	/* Properties
 	 *************/
 	static get props() { // :object
