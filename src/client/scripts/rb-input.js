@@ -20,7 +20,7 @@ export class RbInput extends FormControl(RbBase()) {
 	static get props() { // :object
 		return {
 			...super.props,
-			icon: props.string,
+			iconKind: props.string,
 			iconSource: props.string,
 			iconPosition: props.string,
 			inline: props.boolean,
