@@ -1,7 +1,34 @@
+## [0.0.10](https://github.com/rapid-build-ui/rb-input/compare/v0.0.9...v0.0.10) (2018-09-26)
+
+
+### Features
+
+* **validation:** set form control and focus element for validation to be generic ([a2f047c](https://github.com/rapid-build-ui/rb-input/commit/a2f047c))
+
+
+### Dependencies
+
+* **bump:** deps form-control v0.0.3, rb-base v0.0.4 and rb-icon v0.0.9 ([5d40fd6](https://github.com/rapid-build-ui/rb-input/commit/5d40fd6))
+
+
+### BREAKING CHANGES
+
+* **api option:** change icon to icon-kind ([b72b9db](https://github.com/rapid-build-ui/rb-input/commit/b72b9db))
+
+To migrate the code follow the example below:
+
+**Before:**  
+icon="heart"
+
+**Now:**  
+icon-kind="heart"
+
+
+
 ## [0.0.9](https://github.com/rapid-build-ui/rb-input/compare/v0.0.8...v0.0.9) (2018-09-14)
 
 
-### Dependency Updates
+### Dependencies
 
 * **bump deps:** ([208d31e](https://github.com/rapid-build-ui/rb-input/commit/208d31e))
 	* **rb-base** to v0.0.3
@@ -18,7 +45,7 @@
 * **icon-source:** get it working again ([18e5809](https://github.com/rapid-build-ui/rb-input/commit/18e5809))
 
 
-### Dependency Updates
+### Dependencies
 
 * **new dependency:** [@rapid-build-ui/form-control](https://github.com/rapid-build-ui/form-control) ([aae8c2a](https://github.com/rapid-build-ui/rb-input/commit/aae8c2a))
 
@@ -27,7 +54,7 @@
 ## [0.0.7](https://github.com/rapid-build-ui/rb-input/compare/v0.0.6...v0.0.7) (2018-09-05)
 
 
-### Dependency Updates
+### Dependencies
 
 * **rb-base:** bump to v0.0.2 ([2f16f1b](https://github.com/rapid-build-ui/rb-input/commit/2f16f1b))
 
@@ -41,7 +68,7 @@
 * **validation:** add support for native form validation ([f6bce5a](https://github.com/rapid-build-ui/rb-input/commit/f6bce5a))
 
 
-### Dependency Updates
+### Dependencies
 
 * **rb-base:** replace deps lit-html and skatejs with @rapid-build-ui/rb-base and make corresponding updates ([cb28065](https://github.com/rapid-build-ui/rb-input/commit/cb28065))
 
