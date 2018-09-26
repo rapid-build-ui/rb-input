@@ -9,7 +9,7 @@
 		${props._active ? 'active' : ''}
 		${props.label && 'with-label'}
 		${props.label && (props._active || props.placeholder || props.value) && 'label-above'}
-		${props.icon
+		${props.iconKind
 			? props.iconPosition
 				? `icon-${props.iconPosition}`
 				: 'icon-right'
@@ -34,10 +34,10 @@
 
 	<b class="input-focus-line"></b>
 
-	${props.icon
+	${props.iconKind
 		? html`
 			<rb-icon
-				kind="${props.icon}"
+				kind="${props.iconKind}"
 				source="${props.iconSource}">
 			</rb-icon>`
 		: null

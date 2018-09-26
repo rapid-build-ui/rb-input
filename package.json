@@ -9,8 +9,7 @@
     "unlink": "cd dist/client/ && yarn unlink",
     "relink": "npm run link && npm run unlink && npm run link",
     "install-client": "cd src/client/ && yarn install --ignore-engines",
-    "install-server": "cd src/server/ && npm install",
-    "setup": "npm run install-client && npm run install-server && rapid-build && npm run relink"
+    "setup": "npm run install-client && rapid-build && npm run relink"
   },
   "dependencies": {
     "@rapid-build-ui/utils": "~0.0.9"
