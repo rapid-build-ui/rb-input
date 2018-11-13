@@ -1,3 +1,12 @@
+## [0.0.11](https://github.com/rapid-build-ui/rb-input/compare/v0.0.10...v0.0.11) (2018-11-13)
+
+
+### Dependencies
+
+* **bump:** deps rb-base v0.0.5, form-control v0.0.4 and rb-icon v0.0.10 ([dd850f2](https://github.com/rapid-build-ui/rb-input/commit/dd850f2))
+
+
+
 ## [0.0.10](https://github.com/rapid-build-ui/rb-input/compare/v0.0.9...v0.0.10) (2018-09-26)
 
 
