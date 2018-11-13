@@ -5,7 +5,7 @@
   "description": "Rapid Build UI Web Component: rb-input",
   "license": "MIT",
   "engines": {
-    "node": "8.x",
+    "node": "10.x",
     "npm": "6.x"
   },
   "publishConfig": {
