@@ -2,29 +2,34 @@
 # yarn lockfile v1
 
 
-"@rapid-build-ui/form-control@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@rapid-build-ui/form-control/-/form-control-0.0.3.tgz#78ca981f5ae20bb8a07d74efe73b148cdf257c8f"
-  dependencies:
-    "@rapid-build-ui/rb-base" "^0.0.4"
-
-"@rapid-build-ui/rb-base@^0.0.4":
+"@rapid-build-ui/form-control@^0.0.4":
   version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-base/-/rb-base-0.0.4.tgz#7461055bdb1135dfb6652ccea08eb42b1b55a45d"
+  resolved "https://registry.yarnpkg.com/@rapid-build-ui/form-control/-/form-control-0.0.4.tgz#4fe1697548bb642101c9cd357b0733a81584b00c"
+  integrity sha512-jAgYGDmquc6UQktgPzEvaCx97knTrMUxa+kU55H/hdmaUgblh5C3QFyY2+sqZHxmPZkYa1kijHGz5S3On20Oew==
   dependencies:
-    lit-html "^0.11.4"
+    "@rapid-build-ui/rb-base" "^0.0.5"
+
+"@rapid-build-ui/rb-base@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-base/-/rb-base-0.0.5.tgz#dfb60084d78c40a762c59e25c07a9660b657b1e9"
+  integrity sha512-BD4KXPJSVeHy3uRtWW5ofRK7vdTNP67xrEnMppjbDcVak9lBF19wetIX7ovDivlTywp2QPkNnST/OViF1LVQtg==
+  dependencies:
+    lit-html "^0.13.0"
     skatejs "^5.2.4"
 
-"@rapid-build-ui/rb-icon@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-icon/-/rb-icon-0.0.9.tgz#6fb9a3750890930c5380089bdbac91ef3d6b899e"
+"@rapid-build-ui/rb-icon@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-icon/-/rb-icon-0.0.10.tgz#c53b5d969a314e40033aeae31a34e61fcb7a207f"
+  integrity sha512-L6zgykAOQbKrG+Hcb1yfrCD5RX3edOyQXoo4nPiYoxbSWyg4+hdN+MlNCgXvwpqk3/VhsR/s8fzmEs635LTbsA==
   dependencies:
-    "@rapid-build-ui/rb-base" "^0.0.4"
+    "@rapid-build-ui/rb-base" "^0.0.5"
 
-lit-html@^0.11.4:
-  version "0.11.4"
-  resolved "https://registry.yarnpkg.com/lit-html/-/lit-html-0.11.4.tgz#fa397d2b2f2d0523ebc136e5a1699aa4e9346152"
+lit-html@^0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/lit-html/-/lit-html-0.13.0.tgz#d05e7fe8ade572432120339c451c614669788adf"
+  integrity sha512-p3R2ji/ucNVG5skguy8WufmSYIdMiTTb9ObUVYM2bOuvIXzDnUiePXGwP5BDbKssW1K6fw1Oj/M07FzdPLsTXw==
 
 skatejs@^5.2.4:
   version "5.2.4"
   resolved "https://registry.yarnpkg.com/skatejs/-/skatejs-5.2.4.tgz#945f1451ffb2ed801d19e9baa03f0a259eb84e9e"
+  integrity sha512-Ygd4bB6VTiSFeVpry9R/EWej+/PGrYhO1eMMwsxDaBLMkzXfZRm0CHvggb7RAMEr0VCMc5cBt58I6IU0q6GLvw==

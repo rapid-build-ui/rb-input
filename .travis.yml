@@ -14,11 +14,12 @@
 language: node_js
 
 node_js:
-  - '8'
+  - '10'
 
 env:
   global:
-    - NPM_VERSION="6.1.0"
+    - NPM_VERSION="6.4.1"
+    - RB_CLI_VERSION="6"
     - RB_REPO_SLUG="$TRAVIS_REPO_SLUG"
     - RB_PROJECT_PATH="$TRAVIS_BUILD_DIR"
 
@@ -32,7 +33,7 @@ cache:
 # ===========================
 before_install:
   - if [[ $(npm -v) != $NPM_VERSION ]]; then npm install -g npm@${NPM_VERSION}; fi # version check
-  - if [[ -z $(command -v rapid-build) ]]; then npm install -g rapid-build@5; fi   # if not installed
+  - if [[ -z $(command -v rapid-build) ]]; then npm install -g rapid-build@${RB_CLI_VERSION}; fi # if not installed
 
 # ===================================
 # SPECIFIC JOBS
