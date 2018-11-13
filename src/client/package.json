@@ -37,8 +37,8 @@
   },
   "flat": true,
   "dependencies": {
-    "@rapid-build-ui/form-control": "^0.0.3",
-    "@rapid-build-ui/rb-base": "^0.0.4",
-    "@rapid-build-ui/rb-icon": "^0.0.9"
+    "@rapid-build-ui/form-control": "^0.0.4",
+    "@rapid-build-ui/rb-base": "^0.0.5",
+    "@rapid-build-ui/rb-icon": "^0.0.10"
   }
 }
