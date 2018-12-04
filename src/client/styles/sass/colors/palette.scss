@@ -1,38 +1,22 @@
 /******************************
  * FORM CONTROLS COLOR PALETTE
  ******************************/
-// Constants
-$BLACK:      black;
 $BLUE_DARK:  #0674ad;
-// $BLUE_LIGHT: #228cdb;
-$GREY_DARK:  #5f6e7e; // primary color!
+$GREY_DARK:  #5f6e7e;
 $GREY:       #808080;
-$GREY_LIGHT: #b2b2b2;
+$GREY_LIGHT: #adadad;
 $RED_DARK:   #db3a4d;
-$WHITE:      white;
 
 // Color Palette
 $palette: (
-	// Black
-	black:        $BLACK,
-
-	// Blues
-	blueDark:     $BLUE_DARK,
-
-	// Greys
-	xxGreyDark:   darken($GREY_DARK, 3%),
-	xGreyDark:    $GREY_DARK,
-	greyDark:     lighten($GREY_DARK, 10%),
-	grey:         $GREY,
-	greyLight:    darken($GREY_LIGHT, 15%),
-	xGreyLight:   $GREY_LIGHT,
-
-	// Reds
-	redDark:      $RED_DARK,
-
-	// Transparent
-	transparent:  transparent,
-
-	// White
-	white:        $WHITE
+	black:    black,
+	blueDark: $BLUE_DARK,
+	redDark:  $RED_DARK,
+	white:    white,
+	// greys
+	xxGreyDark:  darken($GREY_DARK, 15%),
+	xGreyDark:   $GREY_DARK,
+	greyDark:    lighten($GREY_DARK, 10%),
+	grey:        $GREY,
+	greyLight:   $GREY_LIGHT
 );

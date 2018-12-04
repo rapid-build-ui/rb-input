@@ -1,0 +1,58 @@
+/**********************
+ * FORM CONTROL COLORS
+ **********************/
+$formControlColors: (
+	text: (
+		// generics
+		active: (
+			default: mapGet($palette, blueDark)
+		),
+		invalid: (
+			default: mapGet($palette, redDark)
+		),
+		// component parts
+		label: (
+			default: mapGet($palette, xGreyDark)
+		),
+		icon: (
+			default: mapGet($palette, greyDark)
+		),
+		placeholder: (
+			default: mapGet($palette, greyLight)
+		),
+		subtext: (
+			default: mapGet($palette, greyDark)
+		),
+		input: (
+			default: mapGet($palette, xGreyDark),
+			active:  mapGet($palette, xxGreyDark)
+		)
+	),
+	bg: (
+		// generics
+		active: (
+			default: mapGet($palette, blueDark)
+		),
+		invalid: (
+			default: mapGet($palette, redDark)
+		)
+	),
+	borders: (
+		// generics
+		active: (
+			default: mapGet($palette, blueDark)
+		),
+		invalid: (
+			default: mapGet($palette, redDark)
+		),
+		// component parts
+		input: (
+			default: mapGet($palette, grey),
+			hover:   mapGet($palette, black),
+			focus:   transparent
+		),
+		focusLine: (
+			active:  mapGet($palette, blueDark)
+		)
+	)
+);

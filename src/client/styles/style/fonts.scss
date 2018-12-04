@@ -1,0 +1,33 @@
+/**************
+ * FONT STYLES
+ **************/
+.form-control { // mac: helvetica | windows: segoe
+	font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, sans-serif;
+	font-weight: 400;
+	font-size: remy(16);
+	line-height: remy(16);
+	letter-spacing: .01em;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.label {
+	font-size: remy(15);
+	font-weight: 600;
+}
+.subtext {
+	font-size: remy(13);
+}
+input {
+	&[type=color],  &[type*=date],    &[type=email],  &[type=month],
+	&[type=number], &[type=password], &[type=search], &[type=tel],
+	&[type=text],   &[type=time],     &[type=url],    &[type=week] {
+	font-size:      inherit;
+	font-family:    inherit;
+	font-weight:    inherit;
+	line-height:    inherit;
+	letter-spacing: inherit;
+}}
+input::placeholder {
+	font-size: remy(13);
+	font-style: italic;
+}

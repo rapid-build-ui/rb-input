@@ -1,0 +1,21 @@
+/*******
+ * HOST
+ *******/
+:host {
+	all: initial; // reset all styles first
+	contain: layout style; // paint cuts off the label above
+}
+
+:host {
+	width: 100%;
+	margin-bottom: 20px;
+	display: inline-block;
+}
+:host([inline]) {
+	width: auto;
+	margin-right: 25px;
+}
+:host([inline][right]) {
+	margin-right: 0;
+	margin-left: 25px;
+}

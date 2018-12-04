@@ -1,0 +1,19 @@
+/********
+ * LABEL
+ ********/
+.label {
+	// transform: translateY(1em);
+	// transform-origin: left bottom;
+	// transition: transform .18s, margin .18s, color .18s; // margin for icon
+	margin-bottom: 8px;
+	transition: color .18s;
+	cursor: text;
+}
+
+// .form-control {
+// 	&.label-above {
+// 		.label {
+// 			transform: translateY(-.65em);
+// 		}
+// 	}
+// }

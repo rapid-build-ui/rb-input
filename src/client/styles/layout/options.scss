@@ -1,0 +1,10 @@
+/**********
+ * OPTIONS
+ **********/
+.form-control {
+	&.right {
+		align-items: flex-end;
+		input { text-align: right; }
+		// .label { transform-origin: right bottom; } // see label.scss
+	}
+}

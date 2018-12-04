@@ -1,0 +1,17 @@
+/*************************
+ * IMPORT THIS FILE LAST!
+ *************************/
+:host([hidden]) {
+	display: none;
+}
+
+input[hidden] {
+	display: none;
+}
+
+.form-control {
+	&[disabled] {
+		opacity: .65;
+		pointer-events: none;
+	}
+}

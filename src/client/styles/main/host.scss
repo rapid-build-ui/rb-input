@@ -1,9 +1,0 @@
-/*******
- * HOST
- *******/
-:host {
-	contain: content;
-}
-:host([hidden]) {
-	display: none;
-}

@@ -1,0 +1,19 @@
+/*******************
+ * INPUT FOCUS LINE
+ *******************/
+.focus-line {
+	width: 100%;
+	margin-top: -2px; // cover input border and prevent shift shock
+	transform: scaleX(0);
+	transition: transform .18s; // TODO: add border-bottom and fix iOS
+	transform-origin: center top;
+	border-bottom: 2px solid transparent;
+}
+
+.form-control {
+	&.active {
+		.focus-line {
+			transform: scaleX(1);
+		}
+	}
+}

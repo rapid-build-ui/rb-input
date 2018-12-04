@@ -3,20 +3,26 @@
  ******************/
 @import 'sass/functions.scss';
 @import 'sass/colors/palette.scss';
-@import 'sass/colors/form-control.scss';
-@import 'main/host.scss';
+@import 'sass/colors/colors.scss';
 
-/* The Component
- ****************/
-.rb-input {
-	@import 'main/common.scss';
-	@import 'main/icon.scss';
-	@import 'main/input.scss';
-	@import 'main/label.scss';
-	@import 'main/placeholder.scss';
-	@import 'main/subtext.scss';
-	// In Order!
-	@import 'main/options.scss';
-	@import 'main/states.scss';
-	@import 'main/disabled.scss';
-}
+/* Layout
+ *********/
+ @import 'layout/host.scss';
+ @import 'layout/root.scss';
+ @import 'layout/label.scss';
+ @import 'layout/input.scss';
+ @import 'layout/focus-line.scss';
+ @import 'layout/icon.scss';
+ @import 'layout/subtext.scss';
+ @import 'layout/options.scss';
+
+ /* Style
+  ********/
+ @import 'style/variables.scss';
+ @import 'style/borders.scss';
+ @import 'style/colors.scss';
+ @import 'style/fonts.scss';
+
+/* Load Last!
+ *************/
+@import 'base/last.scss';
