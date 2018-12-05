@@ -1,7 +1,0 @@
-/**************
- * PLACEHOLDER
- **************/
-input::placeholder {
-	font-style: italic;
-	color: mapGet($formControlColors, text, placeholder, default);
-}

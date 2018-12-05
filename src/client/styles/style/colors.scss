@@ -1,0 +1,37 @@
+/*********
+ * COLORS
+ *********/
+.label {
+	color: mapGet($formControlColors, text, label, default);
+}
+.subtext {
+	color: mapGet($formControlColors, text, subtext, default);
+}
+input {
+	color: mapGet($formControlColors, text, input, default);
+}
+input::placeholder {
+	color: mapGet($formControlColors, text, placeholder, default);
+}
+rb-icon {
+	color: mapGet($formControlColors, text, icon, default);
+}
+
+/* States
+ *********/
+.form-control {
+	&.active {
+		input {
+			color: mapGet($formControlColors, text, input, active);
+		}
+		.label,
+		rb-icon {
+			color: mapGet($formControlColors, text, active, default);
+		}
+	}
+	&.invalid {
+		.label, .subtext, rb-icon {
+			color: mapGet($formControlColors, text, invalid, default);
+		}
+	}
+}

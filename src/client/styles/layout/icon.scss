@@ -1,0 +1,21 @@
+/*******
+ * ICON
+ *******/
+$ICON_SPACE: 1em;
+$BUMP_SPACE: $ICON_SPACE + .35em;
+
+.form-control {
+	&.icon-left {
+		input   { padding-left: $BUMP_SPACE; }
+		// .label  { margin-left: $BUMP_SPACE; }
+		rb-icon { margin-right: -$ICON_SPACE; }
+		&.label-above { .label { margin-left: 0; } }
+		.input-wrap { flex-direction: row-reverse; }
+	}
+	&.icon-right {
+		input   { padding-right: $BUMP_SPACE; }
+		// .label  { margin-right: $BUMP_SPACE; }
+		rb-icon { margin-left: -$ICON_SPACE; }
+		&.label-above { .label { margin-right: 0; } }
+	}
+}

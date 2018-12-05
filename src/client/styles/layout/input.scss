@@ -1,0 +1,17 @@
+/********
+ * INPUT
+ ********/
+.input-wrap {
+	display: flex;
+	flex-wrap: wrap; // so focus line is below input
+	max-width: 167px;
+}
+input {
+	width: 100%; // needed for icon to be on same line
+	padding: 0 0 6px;
+	border: none;
+	outline: none;
+	border-radius: 0; // needed for iOS (shows rounded bottom corners)
+	box-shadow: none; // firefox displays this on invalid form controls
+	box-sizing: border-box;
+}

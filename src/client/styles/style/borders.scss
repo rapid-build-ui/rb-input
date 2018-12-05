@@ -1,0 +1,39 @@
+/**********
+ * BORDERS
+ **********/
+input {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: mapGet($formControlColors, borders, input, default);
+	&:hover {
+		border-bottom-color: mapGet($formControlColors, borders, input, hover);
+	}
+	&:focus {
+		border-bottom-color: mapGet($formControlColors, borders, input, focus);
+	}
+}
+
+/* Input States
+ ***************/
+.form-control {
+	&.invalid {
+		input {
+			border-bottom-color: mapGet($formControlColors, borders, invalid, default);
+		}
+	}
+}
+
+/* Focus Line States
+ ********************/
+.form-control {
+	&.active {
+		.focus-line {
+			border-bottom-color: mapGet($formControlColors, borders, focusLine, active);
+		}
+	}
+	&.invalid {
+		.focus-line {
+			border-bottom-color: mapGet($formControlColors, borders, invalid, default);
+		}
+	}
+}

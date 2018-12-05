@@ -1,7 +1,7 @@
 <div
 	?disabled="${props.disabled}"
 	class="
-		rb-input
+		form-control
 		${props.kind || 'default'}
 		${props.right ? 'right' : ''}
 		${props.inline ? 'inline' : ''}
@@ -16,33 +16,30 @@
 			: ''
 		}
 	">
-
 	${props.label
-		? html`<label for="input">${props.label}</label>`
+		? html`<label class="label" for="input">${props.label}</label>`
 		: null
 	}
-
-	<input
-		id="input"
-		name="${props.name}"
-		.value="${props.value}"
-		type="${props.type || 'text'}"
-		placeholder="${props.placeholder}"
-		@blur="${this._onblur.bind(this)}"
-		@focus="${this._onfocus.bind(this)}"
-		@input="${this._oninput.bind(this)}">
-
-	<b class="input-focus-line"></b>
-
-	${props.iconKind
-		? html`
-			<rb-icon
-				kind="${props.iconKind}"
-				source="${props.iconSource}">
-			</rb-icon>`
-		: null
-	}
-
+	<div class="input-wrap">
+		<input
+			id="input"
+			name="${props.name}"
+			.value="${props.value}"
+			type="${props.type || 'text'}"
+			placeholder="${props.placeholder}"
+			@blur="${this._onblur.bind(this)}"
+			@focus="${this._onfocus.bind(this)}"
+			@input="${this._oninput.bind(this)}">
+		${props.iconKind
+			? html`
+				<rb-icon
+					kind="${props.iconKind}"
+					source="${props.iconSource}">
+				</rb-icon>`
+			: null
+		}
+		<b class="focus-line"></b>
+	</div>
 	${props._eMsg || props.subtext
 		? html`<span class="subtext">${props._eMsg || props.subtext}</span>`
 		: null
