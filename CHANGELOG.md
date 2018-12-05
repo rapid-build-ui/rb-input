@@ -1,3 +1,19 @@
+## [0.0.12](https://github.com/rapid-build-ui/rb-input/compare/v0.0.11...v0.0.12) (2018-12-05)
+
+
+### Features
+
+* **bump:** deps rb-base v0.0.6, form-control v0.0.5 and rb-icon v0.0.11 ([5e4b1df](https://github.com/rapid-build-ui/rb-input/commit/5e4b1df))
+* **hidden attribute:** display style that respects the hidden attribute ([f9603c3](https://github.com/rapid-build-ui/rb-input/commit/f9603c3))
+* **styling:** enhancement ([31ed700](https://github.com/rapid-build-ui/rb-input/commit/31ed700))
+
+
+### Performance Improvements
+
+* **css:** improve browser performance by adding css contain property ([b968b10](https://github.com/rapid-build-ui/rb-input/commit/b968b10))
+
+
+
 ## [0.0.11](https://github.com/rapid-build-ui/rb-input/compare/v0.0.10...v0.0.11) (2018-11-13)
 
 
