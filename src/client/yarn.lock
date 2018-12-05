@@ -2,32 +2,32 @@
 # yarn lockfile v1
 
 
-"@rapid-build-ui/form-control@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@rapid-build-ui/form-control/-/form-control-0.0.4.tgz#4fe1697548bb642101c9cd357b0733a81584b00c"
-  integrity sha512-jAgYGDmquc6UQktgPzEvaCx97knTrMUxa+kU55H/hdmaUgblh5C3QFyY2+sqZHxmPZkYa1kijHGz5S3On20Oew==
-  dependencies:
-    "@rapid-build-ui/rb-base" "^0.0.5"
-
-"@rapid-build-ui/rb-base@^0.0.5":
+"@rapid-build-ui/form-control@^0.0.5":
   version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-base/-/rb-base-0.0.5.tgz#dfb60084d78c40a762c59e25c07a9660b657b1e9"
-  integrity sha512-BD4KXPJSVeHy3uRtWW5ofRK7vdTNP67xrEnMppjbDcVak9lBF19wetIX7ovDivlTywp2QPkNnST/OViF1LVQtg==
+  resolved "https://registry.yarnpkg.com/@rapid-build-ui/form-control/-/form-control-0.0.5.tgz#025ceb3b70798ccde39faa5945a531c376380ff3"
+  integrity sha512-eEBAlkvBP+pX2ojpWO0kunLGY46Dnk6y++TnUExF28s3sAKF6uA9MeoQOn/1/crLtsbKj0CYB85e0iKmttgSDw==
   dependencies:
-    lit-html "^0.13.0"
+    "@rapid-build-ui/rb-base" "^0.0.6"
+
+"@rapid-build-ui/rb-base@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-base/-/rb-base-0.0.6.tgz#f6ed9d11fb696f6159f197b65ba2a4820a9f8cd1"
+  integrity sha512-aSuPWmfFrUezxM7KnyzcRuNutVds97fYCp7T2CHhAd4YXZP65tSdMoLHIZ+0+ZXMaV95CKTaxd5NlIZeew4zmg==
+  dependencies:
+    lit-html "^0.14.0"
     skatejs "^5.2.4"
 
-"@rapid-build-ui/rb-icon@^0.0.10":
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-icon/-/rb-icon-0.0.10.tgz#c53b5d969a314e40033aeae31a34e61fcb7a207f"
-  integrity sha512-L6zgykAOQbKrG+Hcb1yfrCD5RX3edOyQXoo4nPiYoxbSWyg4+hdN+MlNCgXvwpqk3/VhsR/s8fzmEs635LTbsA==
+"@rapid-build-ui/rb-icon@^0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-icon/-/rb-icon-0.0.11.tgz#1d3f89987883bafbde2571c76f185f53bd28c295"
+  integrity sha512-iYS0pwMoGSC4xs9Sb2gPJbCfFDkHsUQ1wpkfLB0UT+DhduwKYWmeUPwIatuUNd9Qqblk4Lr8Vw4bvLcfFbWl0Q==
   dependencies:
-    "@rapid-build-ui/rb-base" "^0.0.5"
+    "@rapid-build-ui/rb-base" "^0.0.6"
 
-lit-html@^0.13.0:
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/lit-html/-/lit-html-0.13.0.tgz#d05e7fe8ade572432120339c451c614669788adf"
-  integrity sha512-p3R2ji/ucNVG5skguy8WufmSYIdMiTTb9ObUVYM2bOuvIXzDnUiePXGwP5BDbKssW1K6fw1Oj/M07FzdPLsTXw==
+lit-html@^0.14.0:
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/lit-html/-/lit-html-0.14.0.tgz#d6830e8f55fb923b0f5824decf7da082a1d22997"
+  integrity sha512-+xqUPzzJGEDqb0F5DOnMXvL0jxpkKebAMlXycKZxFtzlmD+qePEmYrEUPF9XVXcc5eYBzYXTCOUcjSCod4YvgQ==
 
 skatejs@^5.2.4:
   version "5.2.4"
