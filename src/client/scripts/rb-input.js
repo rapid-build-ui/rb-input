@@ -28,6 +28,7 @@ export class RbInput extends FormControl(RbBase()) {
 			label: props.string,
 			placeholder: props.string,
 			right: props.boolean,
+			readonly: props.boolean,
 			subtext: props.string,
 			type: props.string,
 			value: props.string,
