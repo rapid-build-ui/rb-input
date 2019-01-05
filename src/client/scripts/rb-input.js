@@ -1,18 +1,22 @@
 /***********
  * RB-INPUT
  ***********/
-import { props, html, RbBase } from '../../rb-base/scripts/rb-base.js';
-import FormControl from '../../form-control/scripts/form-control.js';
+import { RbBase, props, html } from '../../rb-base/scripts/rb-base.js';
+import FormControl             from '../../form-control/scripts/form-control.js';
+import template                from '../views/rb-input.html';
 import '../../rb-icon/scripts/rb-icon.js';
-import template from '../views/rb-input.html';
+import '../../rb-popover/scripts/rb-popover.js';
 
 export class RbInput extends FormControl(RbBase()) {
 	/* Lifecycle
 	 ************/
 	viewReady() { // :void
 		super.viewReady && super.viewReady();
-		this.rb.elms.focusElm = this.shadowRoot.querySelector('input');
-		this.rb.elms.formControl = this.rb.elms.focusElm
+		Object.assign(this.rb.elms, {
+			focusElm:    this.shadowRoot.querySelector('input'),
+			formControl: this.shadowRoot.querySelector('input')
+		});
+		this._initSlotStates(); // see rb-base: private/mixins/slot.js
 	}
 
 	/* Properties
@@ -73,7 +77,7 @@ export class RbInput extends FormControl(RbBase()) {
 
 	/* Template
 	 ***********/
-	render({ props }) { // :string
+	render({ props, state }) { // :string
 		return html template;
 	}
 }

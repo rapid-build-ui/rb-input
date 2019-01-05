@@ -4,4 +4,5 @@
 .form-control {
 	display: flex;
 	flex-direction: column;
+	position: relative; // popover needs this
 }

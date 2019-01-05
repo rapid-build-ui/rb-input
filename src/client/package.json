@@ -39,6 +39,7 @@
   "dependencies": {
     "@rapid-build-ui/form-control": "^0.0.5",
     "@rapid-build-ui/rb-base": "^0.0.6",
-    "@rapid-build-ui/rb-icon": "^0.0.11"
+    "@rapid-build-ui/rb-icon": "^0.0.11",
+    "@rapid-build-ui/rb-popover": "^0.0.13"
   }
 }

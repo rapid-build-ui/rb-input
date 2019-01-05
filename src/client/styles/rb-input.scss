@@ -7,21 +7,23 @@
 
 /* Layout
  *********/
- @import 'layout/host.scss';
- @import 'layout/root.scss';
- @import 'layout/label.scss';
- @import 'layout/input.scss';
- @import 'layout/focus-line.scss';
- @import 'layout/icon.scss';
- @import 'layout/subtext.scss';
- @import 'layout/options.scss';
+@import 'layout/variables.scss';
+@import 'layout/host.scss';
+@import 'layout/root.scss';
+@import 'layout/label.scss';
+@import 'layout/popover.scss';
+@import 'layout/input.scss';
+@import 'layout/focus-line.scss';
+@import 'layout/icon.scss';
+@import 'layout/subtext.scss';
+@import 'layout/options.scss';
 
- /* Style
-  ********/
- @import 'style/variables.scss';
- @import 'style/borders.scss';
- @import 'style/colors.scss';
- @import 'style/fonts.scss';
+/* Style
+ ********/
+@import 'style/variables.scss';
+@import 'style/borders.scss';
+@import 'style/colors.scss';
+@import 'style/fonts.scss';
 
 /* Load Last!
  *************/
