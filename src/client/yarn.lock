@@ -17,12 +17,28 @@
     lit-html "^0.14.0"
     skatejs "^5.2.4"
 
+"@rapid-build-ui/rb-button@^0.0.13":
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-button/-/rb-button-0.0.13.tgz#948710b1009719ac4d1d8d738d21595fab9e9942"
+  integrity sha512-VJQu8Vws+r6wvjXNBkYSlrwPXESbRUhnFYQIMh7t25+S6o7Z8xdv0bcfsGuJrsW32c1JFY9U+iHBB2O8xL72BA==
+  dependencies:
+    "@rapid-build-ui/rb-base" "^0.0.6"
+    "@rapid-build-ui/rb-icon" "^0.0.11"
+
 "@rapid-build-ui/rb-icon@^0.0.11":
   version "0.0.11"
   resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-icon/-/rb-icon-0.0.11.tgz#1d3f89987883bafbde2571c76f185f53bd28c295"
   integrity sha512-iYS0pwMoGSC4xs9Sb2gPJbCfFDkHsUQ1wpkfLB0UT+DhduwKYWmeUPwIatuUNd9Qqblk4Lr8Vw4bvLcfFbWl0Q==
   dependencies:
     "@rapid-build-ui/rb-base" "^0.0.6"
+
+"@rapid-build-ui/rb-popover@^0.0.13":
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-popover/-/rb-popover-0.0.13.tgz#073abb4c06526b734a69c69cc8d7dbf8c1bb7fca"
+  integrity sha512-kuC44DSvcEjl0Pqz4WBr4tpknyRFBbXyLUXefjBjsmnRjE8n4amKUY+L+zKSyOnHriOVotXqveCu8T2XF3yZUQ==
+  dependencies:
+    "@rapid-build-ui/rb-base" "^0.0.6"
+    "@rapid-build-ui/rb-button" "^0.0.13"
 
 lit-html@^0.14.0:
   version "0.14.0"
