@@ -1,3 +1,22 @@
+## [0.0.13](https://github.com/rapid-build-ui/rb-input/compare/v0.0.12...v0.0.13) (2019-02-24)
+
+
+### Features
+
+* **api:** add readonly ([f6c10bf](https://github.com/rapid-build-ui/rb-input/commit/f6c10bf))
+* **popover slot:** create it so consumers can add rb-popover and not worry about styling ([666592d](https://github.com/rapid-build-ui/rb-input/commit/666592d))
+
+
+### Dependencies
+
+* **bump deps:** ([419a8da](https://github.com/rapid-build-ui/rb-input/commit/419a8da))
+	* **rb-base** to v0.0.7
+	* **rb-icon** to v0.0.12
+	* **rb-popover** to v0.0.14
+	* **form-control** to v0.0.6
+
+
+
 ## [0.0.12](https://github.com/rapid-build-ui/rb-input/compare/v0.0.11...v0.0.12) (2018-12-05)
 
 
