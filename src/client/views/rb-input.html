@@ -4,10 +4,11 @@
 		form-control
 		${props.kind || 'default'}
 		${props.right ? 'right' : ''}
-		${props.inline ? 'inline' : ''}
-		${props._valid ? 'valid' : 'invalid'}
-		${props._active ? 'active' : ''}
 		${props.label && 'with-label'}
+		${props.inline ? 'inline' : ''}
+		${props._active ? 'active' : ''}
+		${props._valid ? 'valid' : 'invalid'}
+		${state.slots.popover ? 'with-popover' : ''}
 		${props.label && (props._active || props.placeholder || props.value) && 'label-above'}
 		${props.iconKind
 			? props.iconPosition
@@ -16,13 +17,24 @@
 			: ''
 		}
 	">
-	${props.label
-		? html`<label class="label" for="input">${props.label}</label>`
-		: null
+	${props.label || state.slots.popover
+		? html`
+			<div class="label">
+				${state.slots.popover
+					? html`<slot name="popover"></slot>`
+					: null
+				}
+				${props.label
+					? html`<label for="input">${props.label}</label>`
+					: null
+				}
+			</div>
+		`: null
 	}
 	<div class="input-wrap">
 		<input
 			id="input"
+			?readonly="${props.readonly}"
 			name="${props.name}"
 			.value="${props.value}"
 			type="${props.type || 'text'}"

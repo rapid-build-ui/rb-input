@@ -12,6 +12,6 @@
     "setup": "npm run install-client && rapid-build && npm run relink"
   },
   "dependencies": {
-    "@rapid-build-ui/utils": "~0.0.10"
+    "@rapid-build-ui/utils": "~0.0.11"
   }
 }

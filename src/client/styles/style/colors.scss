@@ -28,10 +28,16 @@ rb-icon {
 		rb-icon {
 			color: mapGet($formControlColors, text, active, default);
 		}
+		::slotted([slot="popover"]) {
+			--rb-popover-default-trigger-color: mapGet($formControlColors, text, active, default);
+		}
 	}
 	&.invalid {
 		.label, .subtext, rb-icon {
 			color: mapGet($formControlColors, text, invalid, default);
+		}
+		::slotted([slot="popover"]) {
+			--rb-popover-default-trigger-color: mapGet($formControlColors, text, invalid, default);
 		}
 	}
 }

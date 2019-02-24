@@ -4,7 +4,8 @@
 .input-wrap {
 	display: flex;
 	flex-wrap: wrap; // so focus line is below input
-	max-width: 167px;
+	align-items: flex-start;
+	max-width: $MAX_WIDTH;
 }
 input {
 	width: 100%; // needed for icon to be on same line
