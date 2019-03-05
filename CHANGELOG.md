@@ -1,3 +1,22 @@
+## [0.0.14](https://github.com/rapid-build-ui/rb-input/compare/v0.0.13...v0.0.14) (2019-03-05)
+
+
+### Features
+
+* **icon animation:** add it via upgrading rb-icon to v0.0.13 ([778d99f](https://github.com/rapid-build-ui/rb-input/commit/778d99f))
+* **styles:** support multicolored backgrounds via setting the input background to transparent ([cb7c6a6](https://github.com/rapid-build-ui/rb-input/commit/cb7c6a6))
+
+
+### Dependencies
+
+* **bump deps:** ([ea35a5c](https://github.com/rapid-build-ui/rb-input/commit/ea35a5c))
+	* **form-control** to v0.0.7
+	* **rb-base** to v0.0.8
+	* **rb-icon** to v0.0.13
+	* **rb-popover** to v0.0.15
+
+
+
 ## [0.0.13](https://github.com/rapid-build-ui/rb-input/compare/v0.0.12...v0.0.13) (2019-02-24)
 
 
@@ -10,10 +29,10 @@
 ### Dependencies
 
 * **bump deps:** ([419a8da](https://github.com/rapid-build-ui/rb-input/commit/419a8da))
+	* **form-control** to v0.0.6
 	* **rb-base** to v0.0.7
 	* **rb-icon** to v0.0.12
 	* **rb-popover** to v0.0.14
-	* **form-control** to v0.0.6
 
 
 
