@@ -3,6 +3,8 @@
  ***********/
 import { RbBase, props, html } from '../../rb-base/scripts/rb-base.js';
 import FormControl             from '../../form-control/scripts/form-control.js';
+import Converter               from '../../rb-base/scripts/public/props/converters.js';
+import View                    from '../../rb-base/scripts/public/view/directives.js';
 import template                from '../views/rb-input.html';
 import '../../rb-icon/scripts/rb-icon.js';
 import '../../rb-popover/scripts/rb-popover.js';
@@ -24,21 +26,35 @@ export class RbInput extends FormControl(RbBase()) {
 	static get props() { // :object
 		return {
 			...super.props,
-			iconKind: props.string,
-			iconSource: props.string,
-			iconPosition: props.string,
 			inline: props.boolean,
 			kind: props.string,
 			label: props.string,
 			placeholder: props.string,
 			right: props.boolean,
-			readonly: props.boolean,
 			subtext: props.string,
 			type: props.string,
 			value: props.string,
 			_blurred: props.boolean,
 			_active: props.boolean,
-			_dirty: props.boolean
+			_dirty: props.boolean,
+			iconFlip: props.string,
+			iconKind: props.string,
+			iconSpeed: props.number,
+			iconRotate: props.number,
+			iconSource: props.string,
+			iconPosition: props.string,
+			iconBurst: Object.assign({}, props.boolean, {
+				deserialize: Converter.valueless
+			}),
+			iconPulse: Object.assign({}, props.boolean, {
+				deserialize: Converter.valueless
+			}),
+			iconSpin: Object.assign({}, props.boolean, {
+				deserialize: Converter.valueless
+			}),
+			readonly: Object.assign({}, props.boolean, {
+				deserialize: Converter.valueless
+			})
 		}
 	}
 

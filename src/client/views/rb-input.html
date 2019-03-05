@@ -35,8 +35,8 @@
 		<input
 			id="input"
 			?readonly="${props.readonly}"
-			name="${props.name}"
 			.value="${props.value}"
+			name="${props.name}"
 			type="${props.type || 'text'}"
 			placeholder="${props.placeholder}"
 			@blur="${this._onblur.bind(this)}"
@@ -45,8 +45,14 @@
 		${props.iconKind
 			? html`
 				<rb-icon
+					?burst="${props.iconBurst}"
+					?pulse="${props.iconPulse}"
+					?spin="${props.iconSpin}"
 					kind="${props.iconKind}"
-					source="${props.iconSource}">
+					flip="${View.ifDefined(props.iconFlip || undefined)}"
+					speed="${View.ifDefined(props.iconSpeed || undefined)}"
+					rotate="${View.ifDefined(props.iconRotate || undefined)}"
+					source="${View.ifDefined(props.iconSource || undefined)}">
 				</rb-icon>`
 			: null
 		}
