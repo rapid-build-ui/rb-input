@@ -14,9 +14,10 @@ export class RbInput extends FormControl(RbBase()) {
 	 ************/
 	viewReady() { // :void
 		super.viewReady && super.viewReady();
-		Object.assign(this.rb.elms, {
-			focusElm:    this.shadowRoot.querySelector('input'),
-			formControl: this.shadowRoot.querySelector('input')
+		const input = this.shadowRoot.querySelector('input');
+		Object.assign(this.rb.formControl, {
+			elm:      input,
+			focusElm: input
 		});
 		this._initSlotStates(); // see rb-base: private/mixins/slot.js
 	}
@@ -34,9 +35,6 @@ export class RbInput extends FormControl(RbBase()) {
 			subtext: props.string,
 			type: props.string,
 			value: props.string,
-			_blurred: props.boolean,
-			_active: props.boolean,
-			_dirty: props.boolean,
 			iconFlip: props.string,
 			iconKind: props.string,
 			iconSpeed: props.number,
@@ -79,14 +77,14 @@ export class RbInput extends FormControl(RbBase()) {
 		this.value = newVal;
 		if (!this._dirty && newVal !== oldVal)
 			return this._dirty = true;
-		if (!this._blurred) return;
+		if (!this._touched) return;
 		await this.validate();
 	}
 
 	async _onblur(e) {
 		this._active = false;
 		if (!this._dirty) return;
-		this._blurred = true;
+		this._touched = true;
 		this.value = e.target.value;
 		await this.validate();
 	}
