@@ -1,3 +1,16 @@
+## [0.0.15](https://github.com/rapid-build-ui/rb-input/compare/v0.0.14...v0.0.15) (2019-05-09)
+
+
+### Dependencies
+
+* **bump deps:** ([1050a2a](https://github.com/rapid-build-ui/rb-input/commit/1050a2a))
+	* **form-control** to v0.0.8
+	* **rb-base** to v0.0.9
+	* **rb-icon** to v0.0.14
+	* **rb-popover** to v0.0.16
+
+
+
 ## [0.0.14](https://github.com/rapid-build-ui/rb-input/compare/v0.0.13...v0.0.14) (2019-03-05)
 
 
