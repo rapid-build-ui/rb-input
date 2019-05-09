@@ -1,9 +1,22 @@
 /***************
  * POPOVER SLOT
  ***************/
+::slotted([slot="popover"]) {
+	--rb-popover-trigger-transition: none; // match label transition
+	--rb-popover-default-caption-bg: #f7f7f7 !important; // match popover neutral colors
+	--rb-popover-default-caption-color: #5f6e7e !important;
+	--rb-popover-default-trigger-color: 'inherit' !important; // match control state color
+	--rb-popover-default-trigger-color-hover: 'inherit' !important;
+	--rb-popover-trigger-opacity: .75; // lighten up color
+	--rb-popover-trigger-opacity-hover: .55;
+	.active &, .invalid & {
+		--rb-popover-trigger-opacity: .8;
+		--rb-popover-trigger-opacity-hover: .6;
+	}
+}
+
 .with-label ::slotted([slot="popover"]) {
 	position: relative;
-	top: .5px;
 	left: -1px;
 	margin-right: 3px;
 }

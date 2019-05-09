@@ -1,15 +1,16 @@
 <div
 	?disabled="${props.disabled}"
+	?readonly="${props.readonly}"
 	class="
 		form-control
 		${props.kind || 'default'}
 		${props.right ? 'right' : ''}
 		${props.label && 'with-label'}
 		${props.inline ? 'inline' : ''}
-		${props._active ? 'active' : ''}
-		${props._valid ? 'valid' : 'invalid'}
+		${this._active ? 'active' : ''}
+		${this._valid ? 'valid' : 'invalid'}
 		${state.slots.popover ? 'with-popover' : ''}
-		${props.label && (props._active || props.placeholder || props.value) && 'label-above'}
+		${props.label && (this._active || props.placeholder || props.value) && 'label-above'}
 		${props.iconKind
 			? props.iconPosition
 				? `icon-${props.iconPosition}`
@@ -59,8 +60,8 @@
 		}
 		<b class="focus-line"></b>
 	</div>
-	${props._eMsg || props.subtext
-		? html`<span class="subtext">${props._eMsg || props.subtext}</span>`
+	${this._error || props.subtext
+		? html`<span class="subtext">${this._error || props.subtext}</span>`
 		: null
 	}
 </div>
