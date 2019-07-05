@@ -4,7 +4,7 @@
   "scripts": {
     "build-continuous": "node node_modules/@rapid-build-ui/utils/ci component continuous",
     "build-release": "node node_modules/@rapid-build-ui/utils/ci component release",
-    "bump": "node node_modules/@rapid-build-ui/utils/bump component patch",
+    "bump": "node node_modules/@rapid-build-ui/utils/bump component patch src/client/scripts/rb-input.js",
     "link": "cd dist/client/ && yarn link",
     "unlink": "cd dist/client/ && yarn unlink",
     "relink": "npm run link && npm run unlink && npm run link",

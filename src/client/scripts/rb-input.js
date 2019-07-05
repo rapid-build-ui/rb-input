@@ -13,6 +13,10 @@ import '../../rb-popover/scripts/rb-popover.js';
 export class RbInput extends FormControl(RbBase()) {
 	/* Lifecycle
 	 ************/
+	constructor() {
+		super();
+		this.version = '0.0.15';
+	}
 	viewReady() { // :void
 		super.viewReady && super.viewReady();
 		const input = this.shadowRoot.querySelector('input');
