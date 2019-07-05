@@ -1,3 +1,27 @@
+## [0.0.16](https://github.com/rapid-build-ui/rb-input/compare/v0.0.15...v0.0.16) (2019-07-05)
+
+
+### Bug Fixes
+
+* **property value:** from setting string undefined and null when that is the type ([f8f3c48](https://github.com/rapid-build-ui/rb-input/commit/f8f3c48))
+
+
+### Features
+
+* **responsive:** add responsive widths for inline option ([559f293](https://github.com/rapid-build-ui/rb-input/commit/559f293))
+* **version:** add to component properties accessible via this.version ([2aa4163](https://github.com/rapid-build-ui/rb-input/commit/2aa4163))
+
+
+### Dependencies
+
+* **bump deps:** ([556bc74](https://github.com/rapid-build-ui/rb-input/commit/556bc74))
+	* **form-control** to v0.0.9
+	* **rb-base** to v0.0.10
+	* **rb-icon** to v0.0.15
+	* **rb-popover** to v0.0.17
+
+
+
 ## [0.0.15](https://github.com/rapid-build-ui/rb-input/compare/v0.0.14...v0.0.15) (2019-05-09)
 
 
