@@ -7,14 +7,15 @@
 	// layout prevents popover from being over everything
 	contain: style;
 }
-
 :host {
-	width: 100%;
-	margin-bottom: 25px;
 	display: inline-block;
+	margin-bottom: 25px;
+}
+:host(:not([inline])) {
+	width: 100%;
 }
 :host([inline]) {
-	width: auto;
+	width: $MAX_WIDTH;
 	margin-right: 25px;
 }
 :host([inline][right]) {

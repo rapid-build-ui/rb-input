@@ -4,6 +4,7 @@
 import { RbBase, props, html } from '../../rb-base/scripts/rb-base.js';
 import FormControl             from '../../form-control/scripts/form-control.js';
 import Converter               from '../../rb-base/scripts/public/props/converters.js';
+import Type                    from '../../rb-base/scripts/public/services/type.js';
 import View                    from '../../rb-base/scripts/public/view/directives.js';
 import template                from '../views/rb-input.html';
 import '../../rb-icon/scripts/rb-icon.js';
@@ -12,6 +13,10 @@ import '../../rb-popover/scripts/rb-popover.js';
 export class RbInput extends FormControl(RbBase()) {
 	/* Lifecycle
 	 ************/
+	constructor() {
+		super();
+		this.version = '0.0.15';
+	}
 	viewReady() { // :void
 		super.viewReady && super.viewReady();
 		const input = this.shadowRoot.querySelector('input');
@@ -34,7 +39,6 @@ export class RbInput extends FormControl(RbBase()) {
 			right: props.boolean,
 			subtext: props.string,
 			type: props.string,
-			value: props.string,
 			iconFlip: props.string,
 			iconKind: props.string,
 			iconSpeed: props.number,
@@ -52,6 +56,14 @@ export class RbInput extends FormControl(RbBase()) {
 			}),
 			readonly: Object.assign({}, props.boolean, {
 				deserialize: Converter.valueless
+			}),
+			value: Object.assign({}, props.string, {
+				coerce(val) {
+					// prevents returning string 'null' and 'undefined'
+					if (Type.is.null(val)) return val;
+					if (Type.is.undefined(val)) return val;
+					return String(val);
+				}
 			})
 		}
 	}
