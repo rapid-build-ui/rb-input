@@ -1,0 +1,15 @@
+/*********************
+ * RESPONSIVE LAYOUTS
+ *********************/
+// extra small screens (includes iphone portrait)
+@media (max-width: 375px) {
+	:host([inline]) {
+		width: 129px;
+	}
+}
+// small screens (includes iphone plus portrait)
+@media (min-width: 376px) and (max-width: 414px) {
+	:host([inline]) {
+		width: 149px;
+	}
+}
