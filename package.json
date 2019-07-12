@@ -2,9 +2,9 @@
   "name": "rb-input-project",
   "version": "0.0.16",
   "scripts": {
-    "build-continuous": "node node_modules/@rapid-build-ui/utils/ci component continuous",
-    "build-release": "node node_modules/@rapid-build-ui/utils/ci component release",
-    "bump": "node node_modules/@rapid-build-ui/utils/bump component patch src/client/scripts/rb-input.js",
+    "build-continuous": "node node_modules/@rapid-build-ui/cli/ci component continuous",
+    "build-release": "node node_modules/@rapid-build-ui/cli/ci component release",
+    "bump": "node node_modules/@rapid-build-ui/cli/bump component patch src/client/scripts/rb-input.js",
     "link": "cd dist/client/ && yarn link",
     "unlink": "cd dist/client/ && yarn unlink",
     "relink": "npm run link && npm run unlink && npm run link",
@@ -12,6 +12,6 @@
     "setup": "npm run install-client && rapid-build && npm run relink"
   },
   "dependencies": {
-    "@rapid-build-ui/utils": "~0.0.12"
+    "@rapid-build-ui/cli": "~0.0.13"
   }
 }
