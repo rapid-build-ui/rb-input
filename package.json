@@ -1,6 +1,6 @@
 {
   "name": "rb-input-project",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "scripts": {
     "build-continuous": "node node_modules/@rapid-build-ui/cli/ci component continuous",
     "build-release": "node node_modules/@rapid-build-ui/cli/ci component release",

@@ -15,7 +15,7 @@ export class RbInput extends FormControl(RbBase()) {
 	 ************/
 	constructor() {
 		super();
-		this.version = '0.0.16';
+		this.version = '0.0.17';
 	}
 	viewReady() { // :void
 		super.viewReady && super.viewReady();
