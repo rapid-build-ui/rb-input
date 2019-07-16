@@ -1,3 +1,12 @@
+## [0.0.18](https://github.com/rapid-build-ui/rb-input/compare/v0.0.17...v0.0.18) (2019-07-16)
+
+
+### Dependencies
+
+* **bump:** deps rb ([5b40607](https://github.com/rapid-build-ui/rb-input/commit/5b40607))
+
+
+
 ## [0.0.17](https://github.com/rapid-build-ui/rb-input/compare/v0.0.16...v0.0.17) (2019-07-12)
 
 
