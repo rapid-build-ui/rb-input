@@ -2,50 +2,37 @@
 # yarn lockfile v1
 
 
-"@rapid-build-ui/base@^0.0.11":
+"@rapid-build-ui/base@^0.0.12":
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/@rapid-build-ui/base/-/base-0.0.12.tgz#e2edef0e065adb9facd9f2778378027841015c8d"
+  integrity sha512-rJrrcA9tYv/1Dy33fy7GCJoPgrTjL2XqB3zzgQRlb375sIRWC1qVV3fKbNmnsUVpwHSlvSn3q6fIv6mIfsWV3g==
+
+"@rapid-build-ui/form-control@^0.0.11":
   version "0.0.11"
-  resolved "https://registry.yarnpkg.com/@rapid-build-ui/base/-/base-0.0.11.tgz#c68cbc86192bedea55ab5919e16c30d06b48cc7d"
-  integrity sha512-TdposTc4oNY+QWIumOS729Z90jrRFLl72glmSrh6oE8noOuWyVkDFNPBuep2ojiDqVa92T7WBN8Wuxu8NX8edw==
+  resolved "https://registry.yarnpkg.com/@rapid-build-ui/form-control/-/form-control-0.0.11.tgz#887c87bc18cd1e3296758d6c858a18f9536d733a"
+  integrity sha512-RzHlAYdOLJDJfrtbMjv4D675Zp0eO5b/UmjWTLd431MxaAuASXs2lgXdlJf7HbzdhiscVd/5J7bjTmc3bQg73g==
   dependencies:
-    lit-html "^1.1.1"
-    skatejs "^5.2.4"
+    "@rapid-build-ui/base" "^0.0.12"
 
-"@rapid-build-ui/form-control@^0.0.10":
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/@rapid-build-ui/form-control/-/form-control-0.0.10.tgz#0d95ed9f8a28b395f4b21f43dc509ea43cb0b3f2"
-  integrity sha512-BtCtSzGCESNf0wy9MOkVQLWDG74t8fGBTAK7goWMOlrak57znjQVFSyj6XmxDAbVP8sAG3szC98DkIn+3Vz2Uw==
+"@rapid-build-ui/rb-button@^0.0.19":
+  version "0.0.19"
+  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-button/-/rb-button-0.0.19.tgz#dc86ae36e68a35d0e5a6ad504f13db0d75d5ff5d"
+  integrity sha512-dEDQXPA1n2js+VKwLZqXSZhE1OEb/dATtOM/t8Z0pT9PeNkoL4lJqWWXAv4G3COhu3DqD+dSoF+ErvPTUHBpIQ==
   dependencies:
-    "@rapid-build-ui/base" "^0.0.11"
+    "@rapid-build-ui/base" "^0.0.12"
+    "@rapid-build-ui/rb-icon" "^0.0.17"
 
-"@rapid-build-ui/rb-button@^0.0.18":
-  version "0.0.18"
-  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-button/-/rb-button-0.0.18.tgz#55e6a1987482df70b01cba4e8b8d489ea9537172"
-  integrity sha512-uAFs5HvFXP1kYBepjity8BXpxZ5uD8YfZWiOUY9jeOhR+LrfBVaIR/z9jBCwVe3lPxc0aypVTjuTwksr6P4GAw==
+"@rapid-build-ui/rb-icon@^0.0.17":
+  version "0.0.17"
+  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-icon/-/rb-icon-0.0.17.tgz#b54cb02f0ab6ddd58e7ee9dfbcd1cbcae9cb9dc9"
+  integrity sha512-+NyDbKnyFLIe8HdTWld/V2Y3w2WPCT1rsuYcG506DQBKz/7aAA3HA008M+XoX8U7tNQf+a8SVquwUu5tEKpujw==
   dependencies:
-    "@rapid-build-ui/base" "^0.0.11"
-    "@rapid-build-ui/rb-icon" "^0.0.16"
+    "@rapid-build-ui/base" "^0.0.12"
 
-"@rapid-build-ui/rb-icon@^0.0.16":
-  version "0.0.16"
-  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-icon/-/rb-icon-0.0.16.tgz#10b30e0707c4c64e2ffd68ac1d7865efb8ace40c"
-  integrity sha512-kqVz9ldnuXpcxahMJOwCecfkVcWFAclYCdvXuyTETwlZMQMGdNI50d6GXSK5wmREmmtIb7c6aLuEe7ac6FYNhg==
+"@rapid-build-ui/rb-popover@^0.0.19":
+  version "0.0.19"
+  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-popover/-/rb-popover-0.0.19.tgz#ac4257bbd854941825d29e2b0bc93ed9a2eb1b68"
+  integrity sha512-HPxh9Ofsrk6nsXBMgaSpg3El0Cd53myxiZcO2u0al0d8ggeY2BYV3xlSHIEvYdk1YnElcNSN0Wk9FD23wzBlpQ==
   dependencies:
-    "@rapid-build-ui/base" "^0.0.11"
-
-"@rapid-build-ui/rb-popover@^0.0.18":
-  version "0.0.18"
-  resolved "https://registry.yarnpkg.com/@rapid-build-ui/rb-popover/-/rb-popover-0.0.18.tgz#3c615cf987010e78d6d6e6f9e543d474bed06438"
-  integrity sha512-TOLhYZnkLi2JBGWjVASfYa5uDPLHR9ZtFDqlDWncFP0iY95Fd8hLuQSvJRTnJKA6PcrxKj/G919z7flSd5eDmw==
-  dependencies:
-    "@rapid-build-ui/base" "^0.0.11"
-    "@rapid-build-ui/rb-button" "^0.0.18"
-
-lit-html@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/lit-html/-/lit-html-1.1.1.tgz#186ed6abcc70c0d24e1132b37411c3b2645ed1aa"
-  integrity sha512-1WqhkPpj+CKwLRXCCbyRGnWkcFKE4ft2+j8C2zaXwFUK9I2vYDzTuDGPh0H9hZcDBEwoe6YpPC8AO5734EPORQ==
-
-skatejs@^5.2.4:
-  version "5.2.4"
-  resolved "https://registry.yarnpkg.com/skatejs/-/skatejs-5.2.4.tgz#945f1451ffb2ed801d19e9baa03f0a259eb84e9e"
-  integrity sha512-Ygd4bB6VTiSFeVpry9R/EWej+/PGrYhO1eMMwsxDaBLMkzXfZRm0CHvggb7RAMEr0VCMc5cBt58I6IU0q6GLvw==
+    "@rapid-build-ui/base" "^0.0.12"
+    "@rapid-build-ui/rb-button" "^0.0.19"
