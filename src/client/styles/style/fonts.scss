@@ -30,4 +30,5 @@ input {
 input::placeholder {
 	font-size: remy(13);
 	font-style: italic;
+	line-height: 20px; // normalize browsers
 }

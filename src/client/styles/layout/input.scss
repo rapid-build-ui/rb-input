@@ -9,6 +9,8 @@
 }
 input {
 	width: 100%; // needed for icon to be on same line
+	height: 25px; // normalize browsers
+	margin: 0;    // normalize browsers
 	padding: 0 0 6px;
 	border: none;
 	outline: none;
